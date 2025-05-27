@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPINTECHNOLOGY 公式サイト - 会社情報・採用</title>
     <style>
+        /* CSSカスタムプロパティの定義 */
+        :root {
+            /* ノードのサイズを調整する際の基準値 */
+            --overall-node-min-width: 200px;
+            --overall-node-padding: 15px 20px;
+            --overall-node-gap: 30px;
+
+            --dept-node-min-width: 200px;
+            --dept-node-padding: 15px 20px;
+            --dept-node-gap: 20px;
+
+            --eng-group-node-min-width: 150px;
+            --eng-group-node-padding: 10px 15px;
+        }
+
         /* ==================================================== */
         /* === グローバルスタイル (公式サイト全体に適用) === */
         /* ==================================================== */
@@ -86,23 +101,27 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
         }
 
-        /* 各ナビゲーション項目に個別の背景色を設定（色が重複しないように） */
-        header nav ul li:nth-child(1) a { background-color: #ADD8E6; } /* 会社概要 - ライトブルー */
-        header nav ul li:nth-child(2) a { background-color: #B0E0E6; } /* 事業概要 - パウダーブルー */
-        header nav ul li:nth-child(3) a { background-color: #AFEEEE; } /* 組織図 - ペールターコイズ */
-        header nav ul li:nth-child(4) a { background-color: #B2EBF2; } /* 社長紹介 - ライトシアン */
-        header nav ul li:nth-child(5) a { background-color: #C8F0C8; } /* 沿革 - ライトグリーン */
-        header nav ul li:nth-child(6) a { background-color: #D4EDDA; } /* エンジニアのキャリアパス - ミントクリーム */
-        header nav ul li:nth-child(7) a { background-color: #FFFACD; } /* MVV - レモンシフォン */
-        header nav ul li:nth-child(8) a { background-color: #FFDAB9; } /* ビジネスモデル - ピーチパフ */
-        header nav ul li:nth-child(9) a { background-color: #FFC0CB; } /* 組織文化 - ピンク */
-        header nav ul li:nth-child(10) a { background-color: #E6E6FA; } /* 会社の強み - ラベンダー */
-        header nav ul li:nth-child(11) a { background-color: #DDA0DD; } /* 規則と制度 - プラム（少し濃いめ） */
-        header nav ul li:nth-child(12) a { background-color: #D3D3D3; } /* 福利厚生 - ライトグレー */
-        header nav ul li:nth-child(13) a { background-color: #F5F5DC; } /* 私たちの目指す未来 - ベージュ */
-        header nav ul li:nth-child(14) a { background-color: #FAEBD7; } /* まとめ - アンティークホワイト */
-        header nav ul li:nth-child(15) a { background-color: #FFEFD5; } /* お問い合わせ - パパイヤホイップ */
+        /* 各ナビゲーション項目に個別の背景色を設定（色が重複しないように、青系以外） */
+        header nav ul li:nth-child(1) a { background-color: #FFD1DC; } /* ピンク */
+        header nav ul li:nth-child(2) a { background-color: #FFECB3; } /* クリームイエロー */
+        header nav ul li:nth-child(3) a { background-color: #D1C4E9; } /* ラベンダーパープル */
+        header nav ul li:nth-child(4) a { background-color: #C8E6C9; } /* パステルグリーン */
+        header nav ul li:nth-child(5) a { background-color: #FFAB91; } /* コーラルオレンジ */
+        header nav ul li:nth-child(6) a { background-color: #BBDEFB; } /* ライトブルー (少し残しましたが、他の色で調整) */
+        header nav ul li:nth-child(7) a { background-color: #F8BBD0; } /* ディープピンク */
+        header nav ul li:nth-child(8) a { background-color: #FFE082; } /* ゴールドイエロー */
+        header nav ul li:nth-child(9) a { background-color: #B39DDB; } /* アメジストパープル */
+        header nav ul li:nth-child(10) a { background-color: #A5D6A7; } /* ミディアムグリーン */
+        header nav ul li:nth-child(11) a { background-color: #FFCCBC; } /* ライトピーチ */
+        header nav ul li:nth-child(12) a { background-color: #CFD8DC; } /* グレーブルー */
+        header nav ul li:nth-child(13) a { background-color: #B2DFDB; } /* ミントグリーン */
+        header nav ul li:nth-child(14) a { background-color: #E6EE9C; } /* ライムグリーン */
+        header nav ul li:nth-child(15) a { background-color: #FFCDD2; } /* サーモンピンク */
 
+        /* 必要であれば、ナビゲーションリンクのテキスト色も調整して視認性を確保 */
+        header nav ul li:nth-child(n) a {
+            color: #4a5568; /* 濃い目のグレーで、明るい背景色でも見やすいように */
+        }
 
         /* セクションのスタイル */
         section {
@@ -137,62 +156,47 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 軽い影を追加 */
         }
 
-        /* 各セクションの h2 に個別の背景色を設定する部分は変更なし */
-        #company-overview h2 { background-color: #ADD8E6; } /* 会社概要 - ライトブルー */
-        #business-overview h2 { background-color: #B0E0E6; } /* 事業概要 - パウダーブルー */
-        #organization-chart h2 { background-color: #AFEEEE; } /* 組織図 - ペールターコイズ */
-        #ceo-intro h2 { background-color: #B2EBF2; } /* 社長紹介 - ライトシアン */
-        #history h2 { background-color: #C8F0C8; } /* 沿革 - ライトグリーン */
-        #engineer-career h2 { background-color: #D4EDDA; } /* エンジニアのキャリアパス - ミントクリーム */
-        #mvv h2 { background-color: #FFFACD; } /* MVV - レモンシフォン */
-        #business-model h2 { background-color: #FFDAB9; } /* ビジネスモデル - ピーチパフ */
-        #culture h2 { background-color: #FFC0CB; } /* 組織文化 - ピンク */
-        #strengths h2 { background-color: #E6E6FA; } /* 会社の強み - ラベンダー */
-        #rules-systems h2 { background-color: #DDA0DD; } /* 規則と制度 - プラム（少し濃いめ） */
-        #welfare h2 { background-color: #D3D3D3; } /* 福利厚生 - ライトグレー */
-        #future h2 { background-color: #F5F5DC; } /* 私たちの目指す未来 - ベージュ */
-        #summary h2 { background-color: #FAEBD7; } /* まとめ - アンティークホワイト */
-        #contact h2 { background-color: #FFEFD5; } /* お問い合わせ - パパイヤホイップ */
-
-        /* オプション: もし背景色が薄すぎて文字が見えにくい場合、h2 の文字色を調整する */
-        /* 例: 以下のセレクタを追加して文字色を濃くする */
-        /*
-        #mvv h2,
-        #business-model h2,
-        #culture h2,
-        #strengths h2,
-        #welfare h2,
-        #future h2,
-        #summary h2,
-        #contact h2 {
-            color: #333333;
-        }
-        */
+        /* 各セクションの h2 に個別の背景色を設定する部分 */
+        /* ここで !important を追加することで、他のスタイルに上書きされにくくします */
+        #company-overview h2 { background-color: #FFD1DC !important; }
+        #business-overview h2 { background-color: #FFECB3 !important; }
+        #organization-chart h2 { background-color: #D1C4E9 !important; }
+        #ceo-intro h2 { background-color: #C8E6C9 !important; }
+        #history h2 { background-color: #FFAB91 !important; }
+        #engineer-career h2 { background-color: #BBDEFB !important; }
+        #mvv h2 { background-color: #F8BBD0 !important; }
+        #business-model h2 { background-color: #FFE082 !important; }
+        #culture h2 { background-color: #B39DDB !important; }
+        #strengths h2 { background-color: #A5D6A7 !important; }
+        #rules-systems h2 { background-color: #FFCCBC !important; }
+        #welfare h2 { background-color: #CFD8DC !important; }
+        #future h2 { background-color: #B2DFDB !important; }
+        #summary h2 { background-color: #E6EE9C !important; }
+        #contact h2 { background-color: #FFEFD5 !important; }
 
         /* 既存の body スタイルを以下のように変更 */
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff, #e0f2f7); /* より豊かで柔らかなグラデーションに調整 */
-            background-attachment: fixed; /* スクロールしても背景が固定されるように */
+            background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff, #e0f2f7);
+            background-attachment: fixed;
             display: flex;
-            flex-direction: column; /* 要素を縦方向に配置 */
-            align-items: center; /* 中央寄せ */
-            min-height: 100vh; /* ビューポートの高さに合わせて最小高さを設定 */
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
             padding: 20px;
-            box-sizing: border-box; /* パディングとボーダーを幅に含める */
-            overflow-x: hidden; /* 横スクロールを禁止 (特定の要素では許可) */
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
-        /* ヒーローセクションのスタイル */
         #hero {
-            background: linear-gradient(to right, #4299e1, #63b3ed); /* グラデーション背景 */
+            background: linear-gradient(to right, #4299e1, #63b3ed);
             color: white;
             text-align: center;
             padding: 60px 20px;
             margin-bottom: 30px;
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(66, 153, 225, 0.3);
-            transition: none; /* ヒーローセクションには上記の section:hover を適用しない場合 */
+            transition: none;
         }
 
         #hero h2 {
@@ -203,34 +207,31 @@
             padding-bottom: 0;
         }
 
-        /* 「私たちは技術の力で社会に新たな価値を提供します。」の文字色を黄色に変更 */
         #hero p {
             font-size: 1.3rem;
-            color: #FFEB3B; /* 鮮やかな黄色 */
+            color: #FFEB3B;
             margin-bottom: 25px;
         }
 
-        /* 「エンジニア採用情報を見る」ボタンのスタイル変更 */
         section a.btn {
             display: inline-block;
-            background-color: #FFEB3B; /* 黄色に設定（ヒーローセクションのpタグと同じ色） */
-            color: #333333; /* ボタンの文字色を濃いグレーに変更して視認性を確保 */
+            background-color: #FFEB3B;
+            color: #333333;
             padding: 12px 25px;
             border-radius: 8px;
-            text-decoration: none; /* 下線を削除 */
-            font-weight: 700; /* フォントを太くする */
+            text-decoration: none;
+            font-weight: 700;
             margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* ホバーアニメーションをスムーズに */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* デフォルトの影を追加 */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         section a.btn:hover {
-            background-color: #FFD54F; /* ホバー時の背景色を少し濃い黄色に */
-            transform: translateY(-3px); /* わずかに上に移動 */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* ホバー時の影を強調 */
+            background-color: #FFD54F;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* フッターのスタイル */
         footer {
             width: 100%;
             background-color: #2d3748;
@@ -247,33 +248,29 @@
             font-size: 0.9rem;
         }
 
-        /* ============================================ */
-        /* === 画像の基本スタイル (共通部分に適用) === */
-        /* ============================================ */
         .content-image {
-            max-width: 100%; /* 親要素の幅を超えないようにする */
-            height: auto;    /* アスペクト比を維持する */
-            display: block;  /* 中央寄せのためにブロック要素にする */
-            margin: 20px auto; /* 上下に20px、左右中央に配置 */
-            border-radius: 8px; /* 角を少し丸める */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* 複数の画像を縦並びにする場合のコンテナ */
         .image-gallery {
             display: flex;
-            flex-direction: column; /* ここをrowからcolumnに変更 */
-            flex-wrap: nowrap; /* 折り返しを禁止 */
-            align-items: center; /* アイテムを中央に配置 */
-            gap: 40px; /* 画像間のスペースを増やす */
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 40px;
             margin-top: 20px;
             margin-bottom: 20px;
         }
 
         .image-gallery .gallery-item {
-            flex: none; /* flexgrow, flexshrink, flex-basisを無効化 */
-            width: 100%; /* 幅を親要素いっぱいに */
-            max-width: 600px; /* 各アイテムの最大幅を制限 */
+            flex: none;
+            width: 100%;
+            max-width: 600px;
             box-sizing: border-box;
             text-align: center;
         }
@@ -291,7 +288,6 @@
             margin-top: 10px;
         }
 
-        /* QRコード専用のスタイル */
         .qr-code-container {
             margin-top: 30px;
             display: flex;
@@ -327,7 +323,7 @@
             margin: 20px auto;
             text-align: center;
             width: 100%;
-            max-width: 1400px;
+            max-width: 1200px;
             position: relative;
             overflow-x: auto; /* 必要に応じて横スクロールを許可 */
             margin-top: 40px; /* 各組織図コンテナ間のスペース */
@@ -452,7 +448,7 @@
             border: 1px solid #ce93d8;
         }
 
-        /* 組織全体図の線 */
+       /* 組織全体図の線 */
         #overall-org-chart-container .org-chart > ul > li {
             padding-bottom: 70px;
             display: flex;
@@ -483,18 +479,20 @@
             left: 50%;
             transform: translateX(-50%);
             gap: 30px;
+            /* width: auto; もしくは min-width: 100%; が既に適用されているはずですが、
+               明示的に設定して全体的な中央寄せを確実にする場合もあります */
         }
 
         #overall-org-chart-container .org-chart ul ul::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 125px; /* 調整 */
-            right: 125px; /* 調整 */
-            border-top: 2px solid #a0aec0;
-            height: 0;
-            z-index: 0;
-        }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0px;
+    right: 0px;
+    border-top: 2px solid #a0aec0;
+    height: 0;
+    z-index: 0;
+}
 
         #overall-org-chart-container .org-chart ul ul li {
             margin: 0;
@@ -507,10 +505,9 @@
             left: 50%;
             border-left: 2px solid #a0aec0;
             height: 25px;
-            transform: translateX(-50%);
+            transform: translateX(-55%);
             z-index: 0;
         }
-
 
         /* ================================================== */
         /* === エンジニアリング事業部の固有スタイル (Dept) === */
@@ -601,15 +598,26 @@
         }
 
         #engineering-dept-org-chart-container .org-chart ul ul::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 124px; /* 調整 */
-            right: 124px; /* 調整 */
-            border-top: 2px solid #a0aec0;
-            height: 0;
-            z-index: 0;
-        }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 120px;   /* ここを left: 120px; に修正 */
+    right: 120px;  /* ここを right: 120px; に修正 */
+    border-top: 2px solid #a0aec0;
+    height: 0;
+    z-index: 0;
+}
+
+#engineering-dept-org-chart-container .org-chart ul ul li > ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 140px;
+    right: 140px;
+    border-top: none; /* ← ここを border-top: none; に変更 */
+    height: 0;
+    z-index: 0;
+}
 
         #engineering-dept-org-chart-container .org-chart ul ul li {
             margin: 0;
@@ -640,16 +648,16 @@
             flex-wrap: nowrap;
         }
 
-        #engineering-dept-org-chart-container .org-chart ul ul li > ul::before { /* 変更点: 親要素からの直接の子要素セレクタに */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0; /* 中央に線が来るように調整 */
-            right: 0; /* 中央に線が来るように調整 */
-            border-top: 2px solid #a0aec0;
-            height: 0;
-            z-index: 0;
-        }
+        #engineering-dept-org-chart-container .org-chart ul ul li > ul::before {
+    /* content: ''; */ /* この行は残す */
+    /* position: absolute; */ /* この行は残す */
+    /* top: 0; */ /* この行は残す */
+    left: 20px; /* ここを調整 - 各部門ノードの真下にあるため、あまり長くする必要はないかも */
+    right: 20px; /* ここを調整 */
+    /* border-top: 2px solid #a0aec0; */ /* この行は残す */
+    /* height: 0; */ /* この行は残す */
+    /* z-index: 0; */ /* この行は残す */
+}
 
         #engineering-dept-org-chart-container .org-chart ul ul li > ul > li {
             margin: 0;
@@ -671,10 +679,10 @@
         /* ======================== */
         /* === レスポンシブ調整 === */
         /* ======================== */
-        @media (max-width: 1200px) {
+        @media (max-width: 1500px) {
             #overall-org-chart-container .org-chart ul ul::before {
-                left: 120px; /* 調整 */
-                right: 120px; /* 調整 */
+                left: 150px; /* 調整 */
+                right: 150px; /* 調整 */
             }
             #engineering-dept-org-chart-container .org-chart ul ul li > ul::before { /* 調整 */
                 left: 0;
@@ -723,8 +731,8 @@
             }
 
             #overall-org-chart-container .org-chart ul ul::before {
-                left: 110px; /* 調整 */
-                right: 110px; /* 調整 */
+                left: 150px; /* 調整 */
+                right: 150px; /* 調整 */
             }
 
             /* エンジニアリング事業部の調整 */
@@ -872,8 +880,8 @@
             }
 
             #overall-org-chart-container .org-chart ul ul::before {
-                left: 80px; /* 調整 */
-                right: 80px; /* 調整 */
+                left: 150px; /* 調整 */
+                right: 150px; /* 調整 */
             }
 
             /* エンジニアリング事業部の調整 */
@@ -1012,8 +1020,8 @@
             }
 
             #overall-org-chart-container .org-chart ul ul::before {
-                left: 60px; /* 調整 */
-                right: 60px; /* 調整 */
+                left: 150px; /* 調整 */
+                right: 150px; /* 調整 */
             }
 
             #engineering-dept-org-chart-container .org-chart ul ul::before {
@@ -1430,7 +1438,7 @@
             <div class="ceo-text-left">
                 <p><strong>岡田佳祐</strong></p>
                 <ul>
-                    <li>趣味：フットサル、野球、ゴルフ、スマブラ(最強)</li>
+                    <li>趣味：フットサル、野球、ゴルフ、スマブラ</li>
                 </ul>
                 <h3>主な経歴</h3>
                 <ul>
@@ -1451,7 +1459,7 @@
             <li>2021年9月　株式会社SPIN TECHNOLOGY設立</li>
             <li>設立1年半で正社員160名の達成</li>
             <li>2022年11月　本社移転</li>
-            <li>2023年8月　ITスクール開講</li>
+            <li>2021年8月　ITスクール開講</li>
             <li>2023年9月　雑誌「ベンチャー通信」に特集</li>
             <li>2024年1月　「2024年ベストベンチャー100」に選出</li>
             <li>2024年7月　フットサル部がYahoo!ニュースに記載</li>
