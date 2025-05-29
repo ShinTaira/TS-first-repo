@@ -4,36 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPINTECHNOLOGY 公式サイト - 会社情報・採用</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* CSSカスタムプロパティの定義 */
-        :root {
-            /* ノードのサイズを調整する際の基準値 */
-            --overall-node-min-width: 200px;
-            --overall-node-padding: 15px 20px;
-            --overall-node-gap: 30px;
-
-            --dept-node-min-width: 200px;
-            --dept-node-padding: 15px 20px;
-            --dept-node-gap: 20px;
-
-            --eng-group-node-min-width: 150px;
-            --eng-group-node-padding: 10px 15px;
-        }
-
         /* ==================================================== */
         /* === グローバルスタイル (公式サイト全体に適用) === */
         /* ==================================================== */
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff, #e0f2f7); /* より豊かで柔らかなグラデーションに調整 */
-            background-attachment: fixed; /* スクロールしても背景が固定されるように */
+            background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff, #e0f2f7);
+            background-attachment: fixed;
             display: flex;
-            flex-direction: column; /* 要素を縦方向に配置 */
-            align-items: center; /* 中央寄せ */
-            min-height: 100vh; /* ビューポートの高さに合わせて最小高さを設定 */
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
             padding: 20px;
-            box-sizing: border-box; /* パディングとボーダーを幅に含める */
-            overflow-x: hidden; /* 横スクロールを禁止 (特定の要素では許可) */
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto; /* スクロールを許可 */
         }
 
         /* ヘッダーのスタイル */
@@ -41,123 +28,118 @@
             width: 100%;
             background-color: #ffffff;
             padding: 15px 30px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 軽い影 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             text-align: center;
             margin-bottom: 20px;
             display: flex;
-            flex-direction: column; /* 子要素を縦に並べる */
-            align-items: center; /* 中央寄せ */
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
         }
 
         header h1 {
-            margin: 0; /* h1のデフォルトマージンをリセット */
-            /* ロゴが左に寄っている問題への対処 */
-            width: 100%; /* 親要素の幅いっぱいに広げる */
-            text-align: center; /* ロゴ画像を中央に配置 */
+            margin: 0;
+            width: 100%;
+            text-align: center;
         }
 
         header h1 a {
-            display: inline-block; /* ブロック要素ではなくインラインブロックにして、中央寄せを有効にする */
+            display: inline-block;
             text-decoration: none;
-            margin-bottom: 15px; /* ナビゲーションとの間隔を少し広げる */
+            margin-bottom: 15px;
         }
 
         header h1 a img {
-            /* ロゴ画像のスタイル */
-            height: auto; /* 高さを自動調整（元の比率を維持） */
-            max-height: 90px; /* ロゴの最大高さを少し大きく調整 */
-            max-width: 400px; /* ロゴの最大幅を設定。必要に応じて調整してください */
-            width: 100%; /* 親要素の幅に合わせて可変 */
+            height: auto;
+            max-height: 90px;
+            max-width: 400px;
+            width: 100%;
             vertical-align: middle;
-            object-fit: contain; /* 画像が完全に表示されるようにする */
+            object-fit: contain;
         }
 
         header nav ul {
-            list-style: none; /* リストの点なし */
+            list-style: none;
             padding: 0;
             margin: 0;
-            display: flex; /* Flexboxで横並びに */
-            flex-wrap: wrap; /* 必要に応じて折り返し */
-            justify-content: center; /* 中央寄せ */
-            gap: 15px; /* アイテム間の余白 */
-            max-width: 100%; /* 親要素の幅を超えないようにする */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 100%;
         }
 
         header nav ul li a {
-            color: #4a5568; /* テキストの色（濃いグレー） */
+            color: #4a5568;
             text-decoration: none;
             font-weight: 600;
             padding: 5px 10px;
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* デフォルトの軽い影 */
-            white-space: nowrap; /* テキストが折り返さないように */
-            display: block; /* aタグをブロック要素として扱い、paddingや幅を適用しやすくする */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+            display: block;
+            font-size: 1rem;
         }
 
         header nav ul li a:hover {
-            transform: translateY(-2px); /* 少し上に浮き上がる */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* 各ナビゲーション項目に個別の背景色を設定（色が重複しないように、青系以外） */
-        header nav ul li:nth-child(1) a { background-color: #FFD1DC; } /* ピンク */
-        header nav ul li:nth-child(2) a { background-color: #FFECB3; } /* クリームイエロー */
-        header nav ul li:nth-child(3) a { background-color: #D1C4E9; } /* ラベンダーパープル */
-        header nav ul li:nth-child(4) a { background-color: #C8E6C9; } /* パステルグリーン */
-        header nav ul li:nth-child(5) a { background-color: #FFAB91; } /* コーラルオレンジ */
-        header nav ul li:nth-child(6) a { background-color: #BBDEFB; } /* ライトブルー (少し残しましたが、他の色で調整) */
-        header nav ul li:nth-child(7) a { background-color: #F8BBD0; } /* ディープピンク */
-        header nav ul li:nth-child(8) a { background-color: #FFE082; } /* ゴールドイエロー */
-        header nav ul li:nth-child(9) a { background-color: #B39DDB; } /* アメジストパープル */
-        header nav ul li:nth-child(10) a { background-color: #A5D6A7; } /* ミディアムグリーン */
-        header nav ul li:nth-child(11) a { background-color: #FFCCBC; } /* ライトピーチ */
-        header nav ul li:nth-child(12) a { background-color: #CFD8DC; } /* グレーブルー */
-        header nav ul li:nth-child(13) a { background-color: #B2DFDB; } /* ミントグリーン */
-        header nav ul li:nth-child(14) a { background-color: #E6EE9C; } /* ライムグリーン */
-        header nav ul li:nth-child(15) a { background-color: #FFCDD2; } /* サーモンピンク */
+        /* 各ナビゲーション項目に個別の背景色を設定 */
+        header nav ul li:nth-child(1) a { background-color: #FFD1DC; }
+        header nav ul li:nth-child(2) a { background-color: #FFECB3; }
+        header nav ul li:nth-child(3) a { background-color: #D1C4E9; }
+        header nav ul li:nth-child(4) a { background-color: #C8E6C9; }
+        header nav ul li:nth-child(5) a { background-color: #FFAB91; }
+        header nav ul li:nth-child(6) a { background-color: #BBDEFB; }
+        header nav ul li:nth-child(7) a { background-color: #F8BBD0; }
+        header nav ul li:nth-child(8) a { background-color: #FFE082; }
+        header nav ul li:nth-child(9) a { background-color: #B39DDB; }
+        header nav ul li:nth-child(10) a { background-color: #A5D6A7; }
+        header nav ul li:nth-child(11) a { background-color: #FFCCBC; }
+        header nav ul li:nth-child(12) a { background-color: #CFD8DC; }
+        header nav ul li:nth-child(13) a { background-color: #B2DFDB; }
+        header nav ul li:nth-child(14) a { background-color: #E6EE9C; }
+        header nav ul li:nth-child(15) a { background-color: #FFEFD5; }
 
-        /* 必要であれば、ナビゲーションリンクのテキスト色も調整して視認性を確保 */
         header nav ul li:nth-child(n) a {
-            color: #4a5568; /* 濃い目のグレーで、明るい背景色でも見やすいように */
+            color: #4a5568;
         }
 
-        /* セクションのスタイル */
+        /* section */
         section {
             width: 100%;
             max-width: 1200px;
-            background-color: #ffffff; /* ここを #ffffff に変更して、説明部分の背景を白に戻します */
+            background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* 通常時の影 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             padding: 30px;
             margin-bottom: 30px;
             text-align: left;
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* アニメーションの時間を設定 */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
         }
 
-        /* section:hover はそのまま */
         section:hover {
-            transform: translateY(-8px); /* ホバー時に上に少し浮き上がる */
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* ホバー時に影を強くする */
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
 
-        /* 各セクションタイトル (h2) のスタイル調整 */
         section h2 {
             font-size: 2.25rem;
             font-weight: 700;
             color: #2d3748;
             margin-bottom: 20px;
             text-align: center;
-            border-bottom: none; /* 下線を削除 */
+            border-bottom: none;
             padding-bottom: 10px;
-            padding-top: 10px; /* 上下のパディングを追加して背景色を見せる */
-            border-radius: 8px; /* 角を少し丸める */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 軽い影を追加 */
+            padding-top: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        /* 各セクションの h2 に個別の背景色を設定する部分 */
-        /* ここで !important を追加することで、他のスタイルに上書きされにくくします */
+        /* 各セクションの h2 に個別の背景色を設定 */
         #company-overview h2 { background-color: #FFD1DC !important; }
         #business-overview h2 { background-color: #FFECB3 !important; }
         #organization-chart h2 { background-color: #D1C4E9 !important; }
@@ -174,20 +156,7 @@
         #summary h2 { background-color: #E6EE9C !important; }
         #contact h2 { background-color: #FFEFD5 !important; }
 
-        /* 既存の body スタイルを以下のように変更 */
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff, #e0f2f7);
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-
+        /* hero */
         #hero {
             background: linear-gradient(to right, #4299e1, #63b3ed);
             color: white;
@@ -222,7 +191,7 @@
             text-decoration: none;
             font-weight: 700;
             margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -232,6 +201,7 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
+        /* footer */
         footer {
             width: 100%;
             background-color: #2d3748;
@@ -248,6 +218,7 @@
             font-size: 0.9rem;
         }
 
+        /* content-image, image-gallery, qr-code-container */
         .content-image {
             max-width: 100%;
             height: auto;
@@ -311,722 +282,359 @@
             color: #4a5568;
         }
 
-
         /* ================================================= */
-        /* === 組織図の共通スタイル (org-chart-container) === */
+        /* === 組織図のスタイル (タブ形式) === */
         /* ================================================= */
-        .org-chart-container {
+        .tabs {
             background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            padding: 40px 30px;
-            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.04);
+            padding: 20px;
+            margin: 15px auto;
             text-align: center;
             width: 100%;
-            max-width: 1200px;
-            position: relative;
-            overflow-x: auto; /* 必要に応じて横スクロールを許可 */
-            margin-top: 40px; /* 各組織図コンテナ間のスペース */
+            max-width: 900px; /* タブ全体の最大幅 */
+            box-sizing: border-box;
         }
 
-        .org-chart-container h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 30px;
-            text-align: center;
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        /* 組織図ノードの基本スタイル */
-        .node {
-            display: inline-block;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-            padding: 15px 20px;
-            min-width: 200px;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #2d3748;
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-
-        .node:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .node .title {
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: #718096;
-            margin-top: 6px;
-        }
-
-        .node .details {
-            font-size: 0.85rem;
-            color: #4a5568;
-            margin-top: 10px;
-            line-height: 1.5;
-        }
-
-        /* 組織図のツリー構造の線 */
-        .org-chart ul {
+        .tab-buttons {
             display: flex;
             justify-content: center;
-            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .tab-button {
+            background-color: #f0f4f8;
+            color: #4a5568;
+            border: 1px solid #d1d5db;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0 0.2s ease;
+            margin: 0 5px;
+            font-size: 0.9rem;
+        }
+
+        .tab-button.active {
+            background-color: #a0aec0;
+            color: #ffffff;
+            border-color: #a0aec0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-button:hover {
+            background-color: #cbd5e0;
+            color: #2d3748;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content-container {
+            /* 各タブコンテンツの白い背景部分 */
+            overflow-x: auto; /* 必要に応じて横スクロールを許可 */
+            overflow-y: hidden; /* 縦スクロールは隠す */
+            border: 1px solid #e2e8f0; /* 境界線 */
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #ffffff;
+            height: auto; /* コンテンツに合わせて自動調整 */
+            min-height: 250px; /* 最小高さを設定 */
+            position: relative; /* 子要素のabsolute基準 */
+        }
+
+        .org-chart {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .org-chart ul {
+            display: flex;
+            flex-direction: column; /* 縦並びのFlexbox */
+            align-items: center; /* 中央寄せ */
             padding: 0;
-            margin: 0;
-            position: relative;
+            margin: 0 auto;
+            list-style: none;
+            width: fit-content; /* 内容にフィット */
+            max-width: 100%; /* 親を超えない */
+            box-sizing: border-box;
         }
 
         .org-chart li {
-            position: relative;
             text-align: center;
+            margin: 10px 0; /* 上下マージン */
+            position: relative; /* 線の基準 */
+            flex-shrink: 0; /* 縮小させない */
+        }
+
+        .node {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 10px 15px;
+            min-width: 140px; /* ★修正: ノードの最小幅 */
+            text-align: center;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            border: 1px solid #e2e8f0;
+            box-sizing: border-box;
+        }
+
+        .node .department-icon {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #4a5568;
+            display: block;
+        }
+
+        .node .title {
+            font-size: 0.7rem;
+            color: #718096;
+            margin-top: 3px;
+        }
+
+        .node .details {
+            font-size: 0.6rem;
+            color: #4a5568;
+            margin-top: 5px;
+            line-height: 1.3;
+        }
+
+        /* 部署役割の説明テキストのスタイル (各ノードに適用) */
+        .node .role-description {
+            font-size: 0.55rem;
+            color: #555;
+            margin-top: 3px;
+            margin-bottom: 3px;
+            line-height: 1.2;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+            max-width: 90%;
+        }
+
+
+        /* 線の共通スタイル (縦線) */
+        .org-chart ul li::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            border-left: 1px solid #cbd5e0;
+            top: -20px;
+            height: 20px;
+            transform: translateX(-50%);
+        }
+
+        /* 親ULから子ULへの横線と縦線 */
+        .org-chart ul ul {
+            display: flex;
+            flex-direction: row; /* 横並び */
+            justify-content: center;
             list-style: none;
             padding: 0;
-            flex-shrink: 0;
+            margin: 20px 0 0 0; /* 上マージンで距離をとる */
+            gap: 20px; /* ノード間の横方向のギャップ */
+            position: relative;
+            width: fit-content; /* 内容にフィット */
+            max-width: 100%; /* 親を超えない */
+            box-sizing: border-box;
         }
 
-        /* 全てのliの擬似要素をリセットし、必要なものだけ再定義 */
-        .org-chart li::before,
-        .org-chart li::after {
-            content: none;
+        .org-chart ul ul::before {
+            content: '';
+            position: absolute;
+            top: -10px; /* 親ノードから横線までの距離 */
+            left: 0; /* 全幅に伸ばす */
+            right: 0; /* 全幅に伸ばす */
+            border-top: 1px solid #cbd5e0;
+            height: 0;
         }
 
-
-        /* =========================================== */
-        /* === 組織全体図の固有スタイル (Overall) === */
-        /* =========================================== */
-        #overall-org-chart-container {
-            padding-bottom: 250px;
+        .org-chart ul ul li::before {
+            content: '';
+            position: absolute;
+            top: -10px; /* 横線から子ノードまでの縦線 */
+            left: 50%;
+            border-left: 1px solid #cbd5e0;
+            height: 10px;
+            transform: translateX(-50%);
         }
 
-        #overall-org-chart-container .node {
-            margin: 12px;
-        }
-
-        #overall-org-chart-container .node.ceo {
-            background-color: #4299e1;
+        /* 組織全体図のノード色 */
+        #overall-org-chart-container-tab .node.ceo {
+            background-color: #4299e1; /* 青 */
             color: #ffffff;
-            font-weight: 700;
-            font-size: 1.5rem;
-            padding: 25px 30px;
-            box-shadow: 0 8px 20px rgba(66, 153, 225, 0.4);
-            border: none;
         }
-
-        #overall-org-chart-container .node.department {
-            background-color: #e2e8f0;
-            border: 1px solid #cbd5e0;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        #overall-org-chart-container .node.engineering {
-            background-color: #e0f7fa;
+        /* ★修正: 組織全体図の各部署ノードのデフォルトスタイルを削除し、個別クラスで指定 */
+        #overall-org-chart-container-tab .node.engineering {
+            background-color: #e0f7fa; /* 水色 */
             border: 1px solid #80deea;
         }
-
-        #overall-org-chart-container .node.sales {
-            background-color: #dcedc8;
+        #overall-org-chart-container-tab .node.sales {
+            background-color: #dcedc8; /* 薄緑 */
             border: 1px solid #aed581;
         }
-
-        #overall-org-chart-container .node.hr {
-            background-color: #ffe0b2;
+        #overall-org-chart-container-tab .node.hr {
+            background-color: #ffe0b2; /* 薄オレンジ */
             border: 1px solid #ffb74d;
         }
-
-        #overall-org-chart-container .node.accounting {
-            background-color: #f3e5f5;
+        #overall-org-chart-container-tab .node.accounting {
+            background-color: #f3e5f5; /* 薄紫 */
             border: 1px solid #ce93d8;
         }
-
-       /* 組織全体図の線 */
-        #overall-org-chart-container .org-chart > ul > li {
-            padding-bottom: 70px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
+        /* その他の部門ノードのデフォルトスタイル (残りのノードに適用) */
+        #overall-org-chart-container-tab .node {
+            background-color: #e2e8f0; /* 灰色 */
+            border: 1px solid #cbd5e0;
         }
-
-        #overall-org-chart-container .org-chart > ul > li::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            border-left: 2px solid #a0aec0;
-            height: 70px; /* デフォルト値 */
-            transform: translateX(-50%);
-            z-index: 0;
-        }
-
-        #overall-org-chart-container .org-chart ul ul {
-            position: absolute;
-            top: 100%;
-            padding-top: 25px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin: 0 auto;
-            left: 50%;
-            transform: translateX(-50%);
-            gap: 30px;
-            /* width: auto; もしくは min-width: 100%; が既に適用されているはずですが、
-               明示的に設定して全体的な中央寄せを確実にする場合もあります */
-        }
-
-        #overall-org-chart-container .org-chart ul ul::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0px;
-    right: 0px;
-    border-top: 2px solid #a0aec0;
-    height: 0;
-    z-index: 0;
-}
-
-        #overall-org-chart-container .org-chart ul ul li {
-            margin: 0;
-        }
-
-        #overall-org-chart-container .org-chart ul ul li::before {
-            content: '';
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            border-left: 2px solid #a0aec0;
-            height: 25px;
-            transform: translateX(-55%);
-            z-index: 0;
-        }
-
-        /* ================================================== */
-        /* === エンジニアリング事業部の固有スタイル (Dept) === */
-        /* ================================================== */
-        #engineering-dept-org-chart-container {
-            padding-bottom: 250px;
-            max-width: 1000px;
-            margin-top: 80px;
-        }
-
-        #engineering-dept-org-chart-container .org-chart > ul > li .node.top-level {
-            background-color: #3182ce;
+        #overall-org-chart-container-tab .node.ceo .department-icon {
+            font-size: 1.8rem;
             color: #ffffff;
-            font-weight: 700;
-            font-size: 1.25rem;
-            padding: 18px 24px;
-            border: none;
-            box-shadow: 0 6px 15px rgba(49, 130, 206, 0.4);
-            margin-left: 0;
-            margin-right: 0;
         }
 
-        #engineering-dept-org-chart-container .node.infra-dept-1 {
-            background-color: #e0f2fe;
+
+        /* エンジニアリング事業部のノード色 */
+        #engineering-dept-org-chart-container-tab .node.top-level {
+            background-color: #3182ce; /* 青 */
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #engineering-dept-org-chart-container-tab .node.infra-dept-1 {
+            background-color: #e0f2fe; /* 薄い青紫 */
             border: 1px solid #90cdf4;
-            font-weight: 600;
-            font-size: 0.95rem;
         }
-
-        #engineering-dept-org-chart-container .node.infra-dept-2 {
-            background-color: #ede9fe;
+        #engineering-dept-org-chart-container-tab .node.infra-dept-2 {
+            background-color: #ede9fe; /* 薄い紫 */
             border: 1px solid #c4b5fd;
-            font-weight: 600;
-            font-size: 0.95rem;
         }
-
-        #engineering-dept-org-chart-container .node.dev-dept {
-            background-color: #fff7ed;
+        #engineering-dept-org-chart-container-tab .node.dev-dept {
+            background-color: #fff7ed; /* 薄いオレンジ */
             border: 1px solid #fed7aa;
-            font-weight: 600;
-            font-size: 0.95rem;
         }
-
-        #engineering-dept-org-chart-container .node.consult-dept {
-            background-color: #e6fffa;
+        #engineering-dept-org-chart-container-tab .node.consult-dept {
+            background-color: #e6fffa; /* 薄い緑 */
             border: 1px solid #b2f5ea;
-            font-weight: 600;
-            font-size: 0.95rem;
         }
-
-        #engineering-dept-org-chart-container .node.engineer-group {
-            background-color: #e8f5e9;
+        #engineering-dept-org-chart-container-tab .node.engineer-group {
+            background-color: #e8f5e9; /* 薄い緑 */
             border: 1px solid #a5d6a7;
-            font-weight: 700;
-            font-size: 1.0rem;
-            padding: 10px 15px;
             color: #2e7d32;
         }
 
-        /* エンジニアリング事業部組織図の線 */
-        #engineering-dept-org-chart-container .org-chart > ul > li {
-            padding-bottom: 55px;
+        /* エンジニアリング事業部内の階層構造の線 */
+        #engineering-dept-org-chart-container-tab .org-chart ul ul ul {
+            margin-top: 30px; /* 上の階層との間隔 */
         }
 
-        #engineering-dept-org-chart-container .org-chart > ul > li::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            border-left: 2px solid #a0aec0;
-            height: 55px;
-            transform: translateX(-50%);
-            z-index: 0;
+        #engineering-dept-org-chart-container-tab .org-chart ul ul ul::before {
+            top: -10px;
         }
 
-        #engineering-dept-org-chart-container .org-chart ul ul {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding-top: 25px;
-            display: inline-flex;
-            justify-content: center;
-            width: auto;
-            min-width: 100%;
-            gap: 20px;
-            flex-wrap: nowrap;
-        }
-
-        #engineering-dept-org-chart-container .org-chart ul ul::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 120px;   /* ここを left: 120px; に修正 */
-    right: 120px;  /* ここを right: 120px; に修正 */
-    border-top: 2px solid #a0aec0;
-    height: 0;
-    z-index: 0;
-}
-
-#engineering-dept-org-chart-container .org-chart ul ul li > ul::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 140px;
-    right: 140px;
-    border-top: none; /* ← ここを border-top: none; に変更 */
-    height: 0;
-    z-index: 0;
-}
-
-        #engineering-dept-org-chart-container .org-chart ul ul li {
-            margin: 0;
-        }
-
-        #engineering-dept-org-chart-container .org-chart ul ul li::before {
-            content: '';
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            border-left: 2px solid #a0aec0;
-            height: 25px;
-            transform: translateX(-50%);
-            z-index: 0;
-        }
-
-        #engineering-dept-org-chart-container .org-chart ul ul li > ul { /* 変更点: 親要素からの直接の子要素セレクタに */
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding-top: 25px;
-            display: flex;
-            justify-content: center;
-            width: auto;
-            min-width: 100%;
-            gap: 20px;
-            flex-wrap: nowrap;
-        }
-
-        #engineering-dept-org-chart-container .org-chart ul ul li > ul::before {
-    /* content: ''; */ /* この行は残す */
-    /* position: absolute; */ /* この行は残す */
-    /* top: 0; */ /* この行は残す */
-    left: 20px; /* ここを調整 - 各部門ノードの真下にあるため、あまり長くする必要はないかも */
-    right: 20px; /* ここを調整 */
-    /* border-top: 2px solid #a0aec0; */ /* この行は残す */
-    /* height: 0; */ /* この行は残す */
-    /* z-index: 0; */ /* この行は残す */
-}
-
-        #engineering-dept-org-chart-container .org-chart ul ul li > ul > li {
-            margin: 0;
-            position: relative; /* 子ノードの線を調整するために追加 */
-        }
-
-        #engineering-dept-org-chart-container .org-chart ul ul li > ul > li::before {
-            content: '';
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            border-left: 2px solid #a0aec0;
-            height: 25px;
-            transform: translateX(-50%);
-            z-index: 0;
+        #engineering-dept-org-chart-container-tab .org-chart ul ul ul li::before {
+            top: -10px;
+            height: 10px;
         }
 
 
-        /* ======================== */
-        /* === レスポンシブ調整 === */
-        /* ======================== */
-        @media (max-width: 1500px) {
-            #overall-org-chart-container .org-chart ul ul::before {
-                left: 150px; /* 調整 */
-                right: 150px; /* 調整 */
-            }
-            #engineering-dept-org-chart-container .org-chart ul ul li > ul::before { /* 調整 */
-                left: 0;
-                right: 0;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            /* 全体的な調整 */
-            .node {
-                min-width: 160px;
-                padding: 12px 15px;
-                margin: 10px;
-                font-size: 0.95rem;
-            }
-
-            .node .title { font-size: 0.85rem; }
-            .node .details { font-size: 0.75rem; }
-
-            /* 組織全体図の調整 */
-            #overall-org-chart-container .node.ceo {
-                font-size: 1.3rem;
-                padding: 20px 25px;
-            }
-
-            #overall-org-chart-container .node.department {
-                font-size: 1.0rem;
-            }
-
-            #overall-org-chart-container .org-chart > ul > li {
-                padding-bottom: 50px;
-            }
-
-            #overall-org-chart-container .org-chart > ul > li::after {
-                height: 50px;
-            }
-
-            #overall-org-chart-container .org-chart ul ul {
-                padding-top: 20px;
-                gap: 20px;
-            }
-
-            #overall-org-chart-container .org-chart ul ul li::before {
-                top: -20px;
-                height: 20px;
-            }
-
-            #overall-org-chart-container .org-chart ul ul::before {
-                left: 150px; /* 調整 */
-                right: 150px; /* 調整 */
-            }
-
-            /* エンジニアリング事業部の調整 */
-            #engineering-dept-org-chart-container .node {
-                min-width: 120px;
-                padding: 8px 6px;
-                margin: 3px;
-                font-size: 0.8rem;
-            }
-
-            #engineering-dept-org-chart-container .node.top-level {
-                font-size: 1.05rem;
-                padding: 12px;
-            }
-
-            #engineering-dept-org-chart-container .node.infra-dept-1,
-            #engineering-dept-org-chart-container .node.infra-dept-2,
-            #engineering-dept-org-chart-container .node.dev-dept,
-            #engineering-dept-org-chart-container .node.consult-dept {
-                font-size: 0.8rem;
-            }
-
-            #engineering-dept-org-chart-container .node.engineer-group {
-                font-size: 0.8rem;
-            }
-
-            #engineering-dept-org-chart-container .node .details {
-                font-size: 0.65rem;
-            }
-
-            #engineering-dept-org-chart-container .org-chart li {
-                margin: 0 3px;
-            }
-
-            #engineering-dept-org-chart-container {
-                padding-bottom: 250px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart > ul > li {
-                padding-bottom: 35px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart > ul > li::after {
-                height: 35px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul {
-                padding-top: 12px;
-                gap: 15px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul li::before {
-                top: -12px;
-                height: 12px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul::before {
-                left: 50px; /* 調整 */
-                right: 50px; /* 調整 */
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul li > ul {
-                margin-top: 10px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul li > ul > li::before { /* 調整 */
-                top: -20px; /* topを定義 */
-                height: 20px;
-            }
-        }
-
+        /* レスポンシブ対応 */
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            header { padding: 10px 15px; margin-bottom: 15px; }
-            header h1 a img { /* レスポンシブ調整を追加 */
-                max-height: 70px; /* 小さい画面でのロゴの最大高さを調整 */
-            }
-            header nav ul {
-                gap: 8px; /* 小さい画面では間隔を狭める */
-            }
-            header nav ul li a {
-                padding: 4px 8px; /* パディングも小さくする */
-                font-size: 0.85rem; /* フォントサイズも小さくする */
-            }
-            section { padding: 20px; margin-bottom: 20px; }
-            section h2 { font-size: 1.8rem; margin-bottom: 15px; }
-            section h3 { font-size: 1.4rem; margin-top: 20px; margin-bottom: 10px; }
-            section p, section li, section dd { font-size: 1rem; }
-            section a.btn { padding: 10px 20px; }
-            #hero { padding: 40px 15px; }
-            #hero h2 { font-size: 2.2rem; }
-            #hero p { font-size: 1.1rem; }
-
-            /* 組織全体図の調整 */
-            #overall-org-chart-container .node {
-                min-width: 130px;
-                padding: 10px 12px;
-                margin: 8px;
-                font-size: 0.9rem;
+            .tabs {
+                padding: 15px;
+                max-width: 100%;
             }
 
-            #overall-org-chart-container .node.ceo {
-                font-size: 1.15rem;
-                padding: 18px 20px;
+            .tab-buttons {
+                flex-direction: column;
+                align-items: stretch;
             }
 
-            #overall-org-chart-container .node.department {
-                font-size: 0.95rem;
+            .tab-button {
+                margin: 5px 0;
             }
 
-            #overall-org-chart-container .node .details {
-                font-size: 0.7rem;
+            .tab-content-container {
+                padding: 10px;
+                min-height: 200px;
             }
 
-            #overall-org-chart-container .org-chart li {
-                margin: 0 8px;
+            .org-chart ul ul {
+                flex-direction: column;
+                align-items: center; /* 縦並び時は中央寄せ */
+                gap: 10px;
+                margin-top: 20px;
+                width: 100%;
             }
 
-            #overall-org-chart-container {
-                padding: 20px 15px;
-                padding-bottom: 150px;
-            }
-
-            #overall-org-chart-container .org-chart > ul > li {
-                padding-bottom: 40px;
-            }
-
-            #overall-org-chart-container .org-chart > ul > li::after {
-                height: 40px; /* 768px以下のメディアクエリ内の高さを調整しました */
-            }
-
-            #overall-org-chart-container .org-chart ul ul {
-                padding-top: 15px;
-                gap: 15px;
-                flex-wrap: wrap;
-            }
-
-            #overall-org-chart-container .org-chart ul ul li {
-                margin-bottom: 15px;
-            }
-
-            #overall-org-chart-container .org-chart ul ul li::before {
+            .org-chart ul ul::before {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                width: 1px; /* 縦線に見えるようにする */
+                border-top: none;
+                border-left: 1px solid #cbd5e0;
                 top: -15px;
                 height: 15px;
             }
 
-            #overall-org-chart-container .org-chart ul ul::before {
-                left: 150px; /* 調整 */
-                right: 150px; /* 調整 */
-            }
-
-            /* エンジニアリング事業部の調整 */
-            #engineering-dept-org-chart-container .node {
-                min-width: 90px;
-                padding: 6px 4px;
-                margin: 2px;
-                font-size: 0.75rem;
-            }
-
-            #engineering-dept-org-chart-container .node.top-level {
-                font-size: 0.95rem;
-                padding: 10px;
-            }
-
-            #engineering-dept-org-chart-container .node.infra-dept-1,
-            #engineering-dept-org-chart-container .node.infra-dept-2,
-            #engineering-dept-org-chart-container .node.dev-dept,
-            #engineering-dept-org-chart-container .node.consult-dept {
-                font-size: 0.8rem;
-            }
-
-            #engineering-dept-org-chart-container .node.engineer-group {
-                font-size: 0.8rem;
-            }
-
-            #engineering-dept-org-chart-container .node .details {
-                font-size: 0.65rem;
-            }
-
-            #engineering-dept-org-chart-container .org-chart li {
-                margin: 0 2px;
-            }
-
-            #engineering-dept-org-chart-container {
-                padding-bottom: 200px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart > ul > li {
-                padding-bottom: 25px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart > ul > li::after {
-                height: 25px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul {
-                padding-top: 10px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul li::before {
-                top: -10px;
-                height: 10px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul::before {
-                left: 30px; /* 調整 */
-                right: 30px; /* 調整 */
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul li > ul {
-                margin-top: 10px;
-            }
-
-            #engineering-dept-org-chart-container .org-chart ul ul li > ul > li::before { /* 調整 */
-                top: -20px; /* topを定義 */
-                height: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .node {
-                min-width: 100px;
-                padding: 8px 10px;
-                margin: 5px;
-                font-size: 0.8rem;
-                border-radius: 8px;
-            }
-            header { /* レスポンシブ調整を追加 */
-                padding: 8px 10px; /* さらにパディングを調整 */
-            }
-            header h1 a img { /* レスポンシブ調整を追加 */
-                max-height: 60px; /* さらに小さい画面でのロゴの最大高さを調整 */
-            }
-            header nav ul {
-                gap: 5px; /* さらに間隔を狭める */
-            }
-            header nav ul li a {
-                padding: 3px 6px; /* さらにパディングを小さくする */
-                font-size: 0.75rem; /* さらにフォントサイズを小さくする */
-            }
-
-            .node.ceo {
-                font-size: 1.0rem;
-                padding: 15px 18px;
-            }
-
-            .node.department {
-                font-size: 0.85rem;
-            }
-
-            .node .details {
-                font-size: 0.65rem;
-                margin-top: 5px;
-            }
-
-            .org-chart li {
-                margin: 0 5px;
-            }
-
-            .org-chart-container {
-                padding: 15px 10px;
-                padding-bottom: 100px;
-            }
-
-            .org-chart > ul > li {
-                padding-bottom: 30px;
-            }
-
-            .org-chart > ul > li::after {
-                height: 30px;
-            }
-
-            .org-chart ul ul {
-                padding-top: 10px;
-                gap: 10px;
-            }
-
             .org-chart ul ul li {
-                margin-bottom: 10px;
+                margin: 0;
+                width: 100%;
+                flex-basis: auto;
             }
 
-            #overall-org-chart-container .org-chart ul ul li::before {
-                top: -10px;
-                height: 10px;
+            .org-chart ul ul li::before {
+                display: none; /* 個別の縦線を非表示 */
             }
 
-            #overall-org-chart-container .org-chart ul ul::before {
-                left: 150px; /* 調整 */
-                right: 150px; /* 調整 */
+            /* 組織全体図のノードサイズ調整 (モバイル) */
+            #overall-org-chart-container-tab .node {
+                min-width: 100px; /* ★修正: さらに縮小 */
+                padding: 6px 8px; /* ★修正: さらに縮小 */
+                font-size: 0.65rem; /* ★修正: さらに縮小 */
+            }
+            #overall-org-chart-container-tab .node.ceo {
+                font-size: 0.9rem; /* ★修正: さらに縮小 */
+                padding: 8px 12px; /* ★修正: さらに縮小 */
+            }
+            #overall-org-chart-container-tab .node .details,
+            #overall-org-chart-container-tab .node .role-description {
+                font-size: 0.5rem; /* ★修正: さらに縮小 */
+            }
+            #overall-org-chart-container-tab .node .department-icon {
+                font-size: 0.9rem; /* ★修正: さらに縮小 */
             }
 
-            #engineering-dept-org-chart-container .org-chart ul ul::before {
-                left: 20px; /* 調整 */
-                right: 20px; /* 調整 */
+            /* エンジニアリング事業部のノードサイズ調整 (モバイル) */
+            #engineering-dept-org-chart-container-tab .node {
+                min-width: 90px; /* ★修正: さらに縮小 */
+                padding: 5px 6px; /* ★修正: さらに縮小 */
+                font-size: 0.6rem; /* ★修正: さらに縮小 */
+            }
+            #engineering-dept-org-chart-container-tab .node.top-level {
+                font-size: 0.75rem; /* ★修正: さらに縮小 */
+                padding: 6px 10px; /* ★修正: さらに縮小 */
+            }
+            #engineering-dept-org-chart-container-tab .node .details {
+                font-size: 0.5rem; /* ★修正: さらに縮小 */
+            }
+            #engineering-dept-org-chart-container-tab .org-chart ul ul ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 6px; /* ★修正: さらに縮小 */
+                margin-top: 10px; /* ★修正: さらに縮小 */
+                width: 100%;
+            }
+            #engineering-dept-org-chart-container-tab .org-chart ul ul ul::before {
+                left: 50%;
+                right: auto;
+                width: 1px;
+                border-top: none;
+                border-left: 1px solid #cbd5e0;
+                top: -8px; /* ★修正: さらに縮小 */
+                height: 8px; /* ★修正: さらに縮小 */
+                transform: translateX(-50%);
+            }
+            #engineering-dept-org-chart-container-tab .org-chart ul ul ul li::before {
+                display: none;
             }
         }
     </style>
@@ -1217,6 +825,8 @@
             #ceo-intro .ceo-image-right {
                 max-width: 200px; /* さらに小さい画面での画像サイズ調整 */
             }
+　　/* ビジネスモデルセクションの特定テキスト */ #business-model ul > li { font-size: 1.1rem; /* 少し大きくしました */ font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; /* ゴシック体に変更 */ margin-bottom: 0.8rem; /* 行間を少し調整 */ } #business-model > p:nth-child(3) + ul > li { /* 「私たちは、」以下のリスト */ font-size: 1.1rem; /* 少し大きくしました */ font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; /* ゴシック体に変更 */ margin-bottom: 0.6rem; /* 行間を少し調整 */ 
+　　}
         }
     </style>
 </head>
@@ -1298,136 +908,112 @@
 
     <section id="organization-chart">
         <h2>3. 組織図</h2>
-        <p></p>
-
-        <div id="overall-org-chart-container" class="org-chart-container">
-            <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">組織全体図</h1>
-            <div class="org-chart">
-                <ul>
-                    <li>
-                        <div class="node ceo">
-                            岡田
-                            <div class="title">代表取締役</div>
-                        </div>
-                        <ul>
-                            <li>
-                                <div class="node engineering">
-                                    エンジニアリング事業部
-                                    <div class="details">
-                                        責任者: 部長4名<br>
-                                        エンジニア: 300名
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="node sales">
-                                    営業部
-                                    <div class="details">
-                                        責任者: 斎藤<br>
-                                        営業: 3名
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="node hr">
-                                    人事部
-                                    <div class="details">
-                                        責任者: 今戸<br>
-                                        採用: 1名<br>
-                                        教育: 1名
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="node accounting">
-                                    経理部
-                                    <div class="details">
-                                        責任者: 木村
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="openTab('overall')">組織全体図</button>
+                <button class="tab-button" onclick="openTab('engineering')">エンジニアリング事業部</button>
             </div>
-        </div>
 
-        <div id="engineering-dept-org-chart-container" class="org-chart-container">
-            <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">エンジニアリング事業部</h1>
-            <div class="org-chart">
-                <ul>
-                    <li>
-                        <div class="node top-level">
-                            エンジニアリング事業部
-                        </div>
+            <div id="overall" class="tab-content active">
+                <div id="overall-org-chart-container-tab" class="tab-content-container">
+                    <div class="org-chart">
                         <ul>
                             <li>
-                                <div class="node infra-dept-1">
-                                    インフラ部
-                                    <div class="details">
-                                        部長: 1名<br>
-                                        マネジメントメンバー: 4名
-                                    </div>
+                                <div class="node ceo">
+                                    <i class="fas fa-user-tie department-icon"></i><br>
+                                    岡田
+                                    <div class="title">代表取締役</div>
                                 </div>
                                 <ul>
                                     <li>
-                                        <div class="node engineer-group">
-                                            エンジニア: 75名
+                                        <div class="node engineering">
+                                            <i class="fas fa-cogs department-icon"></i><br>
+                                            エンジニアリング事業部
+                                            <div class="details">責任者: 部長4名<br>エンジニア: 300名</div>
                                         </div>
                                     </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="node infra-dept-2">
-                                    インフラ部
-                                    <div class="details">
-                                        部長: 1名<br>
-                                        マネジメントメンバー: 4名
-                                    </div>
-                                </div>
-                                <ul>
                                     <li>
-                                        <div class="node engineer-group">
-                                            エンジニア: 75名
+                                        <div class="node sales">
+                                            <i class="fas fa-handshake department-icon"></i><br>
+                                            営業部
+                                            <div class="details">責任者: 斎藤<br>営業: 4名</div>
                                         </div>
                                     </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="node dev-dept">
-                                    開発部
-                                    <div class="details">
-                                        部長: 1名<br>
-                                        マネジメントメンバー: 4名
-                                    </div>
-                                </div>
-                                <ul>
                                     <li>
-                                        <div class="node engineer-group">
-                                            エンジニア: 75名
+                                        <div class="node hr">
+                                            <i class="fas fa-users department-icon"></i><br>
+                                            人事部
+                                            <div class="details">責任者: 今戸<br>採用: 1名<br>教育: 1名</div>
                                         </div>
                                     </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="node consult-dept">
-                                    コンサル部
-                                    <div class="details">
-                                        部長: 1名<br>
-                                        マネジメントメンバー: 4名
-                                    </div>
-                                </div>
-                                <ul>
                                     <li>
-                                        <div class="node engineer-group">
-                                            エンジニア: 75名
+                                        <div class="node accounting">
+                                            <i class="fas fa-calculator department-icon"></i><br>
+                                            経理部
+                                            <div class="details">責任者: 木村</div>
                                         </div>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-                    </li>
-                </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="engineering" class="tab-content">
+                <div id="engineering-dept-org-chart-container-tab" class="tab-content-container">
+                    <div class="org-chart">
+                        <ul>
+                            <li>
+                                <div class="node top-level">
+                                    エンジニアリング事業部
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="node infra-dept-1">
+                                            <i class="fas fa-server department-icon"></i><br>
+                                            インフラ部
+                                            <div class="details">部長: 1名<br>マネジメントメンバー: 4名</div>
+                                        </div>
+                                        <ul>
+                                            <li><div class="node engineer-group">エンジニア: 75名</div></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="node infra-dept-2">
+                                            <i class="fas fa-network-wired department-icon"></i><br>
+                                            インフラ部
+                                            <div class="details">部長: 1名<br>マネジメントメンバー: 4名</div>
+                                        </div>
+                                        <ul>
+                                            <li><div class="node engineer-group">エンジニア: 75名</div></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="node dev-dept">
+                                            <i class="fas fa-code department-icon"></i><br>
+                                            開発部
+                                            <div class="details">部長: 1名<br>マネジメントメンバー: 4名</div>
+                                        </div>
+                                        <ul>
+                                            <li><div class="node engineer-group">エンジニア: 75名</div></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="node consult-dept">
+                                            <i class="fas fa-lightbulb department-icon"></i><br>
+                                            コンサル部
+                                            <div class="details">部長: 1名<br>マネジメントメンバー: 4名</div>
+                                        </div>
+                                        <ul>
+                                            <li><div class="node engineer-group">エンジニア: 75名</div></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1520,7 +1106,6 @@
             <li>社員一人ひとりの成長が、会社の力となる</li>
             <li>ITの力で、より良い社会の実現に貢献する</li>
         </ul>
-        <p>ことを通して、持続的な成長と社会貢献を目指します。</p>
     </section>
 
     <section id="culture">
@@ -1629,7 +1214,6 @@
         <h2>15. 採用情報とお問い合わせ</h2>
         <ul>
             <li>採用情報<br><a href="https://spintechnology.jp/recruit/entry/" target="_blank">https://spintechnology.jp/recruit/entry/</a></li>
-            <li>お問い合わせ<br><a href="https://liff-gateway.lineml.jp/landing?follow=%40082gtpzg&lp=lNUrFh&liff_id=2001381821-oVRMYnDQ" target="_blank">https://liff-gateway.lineml.jp/landing?follow=%40082gtpzg&lp=lNUrFh&liff_id=2001381821-oVRMYnDQ</a></li>
         </ul>
         <h4 class="contact-call-to-action">ご質問があればお気軽にご連絡ください。</h4>
         <div class="qr-code-container">
@@ -1641,6 +1225,27 @@
     <footer>
         <p>&copy; 2025 SPINTECHNOLOGY All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function openTab(tabName) {
+            var i;
+            var x = document.getElementsByClassName("tab-content");
+            var buttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.classList.add("active");
+        }
+
+        // 初期表示で「組織全体図」タブをアクティブにする
+        document.addEventListener('DOMContentLoaded', function() {
+            openTab('overall');
+        });
+    </script>
 
 </body>
 </html>
