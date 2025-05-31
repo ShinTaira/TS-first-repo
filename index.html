@@ -21,92 +21,205 @@
             box-sizing: border-box;
             overflow-x: hidden;
             overflow-y: auto; /* スクロールを許可 */
+            /* ★追加・変更点: ヘッダー固定のためのパディング調整 */
+            padding-top: 130px; /* 新しいヘッダーの高さに合わせて調整 */
         }
 
-        /* ヘッダーのスタイル */
-        header {
+        /* ヘッダーのスタイル - 新しいヘッダーに合わせて大幅変更 */
+        .p-header {
             width: 100%;
             background-color: #ffffff;
-            padding: 15px 30px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            margin-bottom: 20px;
+            padding: 10px 30px; /* 既存のヘッダーより上下のパディングを少し減らしました */
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            /* ★固定ヘッダーのプロパティ */
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* 他のコンテンツの上に表示されるようにする */
+        }
+
+        .p-header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px; /* サイト全体の最大幅に合わせる */
+        }
+
+        .p-header__logo img {
+            height: auto;
+            max-height: 70px; /* ロゴの高さを調整 */
+            width: auto;
+            vertical-align: middle;
+        }
+
+        .p-header__right {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* ボタン間のスペース */
+        }
+
+        /* ヘッダー内のボタンの共通スタイル */
+        .p-header__btn {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+        }
+
+        .p-header__btn a {
+            color: #333333; /* テキストの色 */
+            text-decoration: none;
+            display: flex; /* アイコンとテキストを並べるため */
             align-items: center;
             justify-content: center;
+            gap: 5px; /* アイコンとテキストの間隔 */
         }
 
-        header h1 {
-            margin: 0;
-            width: 100%;
-            text-align: center;
+        /* 各ボタンの背景色 */
+        .p-btn__session {
+            background-color: #BBDEFB; /* ライトブルー */
+        }
+        .p-btn__recruit {
+            background-color: #A5D6A7; /* ミディアムグリーン */
+        }
+        .p-btn__company { /* グローバルナビゲーション内の企業サイトボタン */
+            background-color: #FFD1DC; /* ピンク */
+        }
+        .p-btn__entry { /* グローバルナビゲーション内のエントリーボタン */
+            background-color: #FFEB3B; /* 明るい黄色 */
         }
 
-        header h1 a {
-            display: inline-block;
-            text-decoration: none;
-            margin-bottom: 15px;
-        }
-
-        header h1 a img {
-            height: auto;
-            max-height: 90px;
-            max-width: 400px;
-            width: 100%;
-            vertical-align: middle;
-            object-fit: contain;
-        }
-
-        header nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            max-width: 100%;
-        }
-
-        header nav ul li a {
-            color: #4a5568;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            white-space: nowrap;
-            display: block;
-            font-size: 1rem;
-        }
-
-        header nav ul li a:hover {
+        .p-header__btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* 各ナビゲーション項目に個別の背景色を設定 */
-        header nav ul li:nth-child(1) a { background-color: #FFD1DC; }
-        header nav ul li:nth-child(2) a { background-color: #FFECB3; }
-        header nav ul li:nth-child(3) a { background-color: #D1C4E9; }
-        header nav ul li:nth-child(4) a { background-color: #C8E6C9; }
-        header nav ul li:nth-child(5) a { background-color: #FFAB91; }
-        header nav ul li:nth-child(6) a { background-color: #BBDEFB; }
-        header nav ul li:nth-child(7) a { background-color: #F8BBD0; }
-        header nav ul li:nth-child(8) a { background-color: #FFE082; }
-        header nav ul li:nth-child(9) a { background-color: #B39DDB; }
-        header nav ul li:nth-child(10) a { background-color: #A5D6A7; }
-        header nav ul li:nth-child(11) a { background-color: #FFCCBC; }
-        header nav ul li:nth-child(12) a { background-color: #CFD8DC; }
-        header nav ul li:nth-child(13) a { background-color: #B2DFDB; }
-        header nav ul li:nth-child(14) a { background-color: #E6EE9C; }
-        header nav ul li:nth-child(15) a { background-color: #FFEFD5; }
-
-        header nav ul li:nth-child(n) a {
-            color: #4a5568;
+        /* グローバルナビゲーションのスタイル */
+        .p-g-nav {
+            display: none; /* デフォルトでは非表示 (ハンバーガーメニューで切り替える想定) */
+            position: absolute; /* ハンバーガーメニューで開くときに位置調整 */
+            top: 100%; /* ヘッダーのすぐ下に配置 */
+            left: 0;
+            width: 100%;
+            background-color: #f0f4f8; /* 背景色 */
+            padding: 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+            z-index: 999; /* ヘッダーよりは下、コンテンツよりは上に */
+            flex-direction: column;
+            gap: 15px;
         }
+
+        .p-g-nav.is-active {
+            display: flex; /* アクティブ時に表示 */
+        }
+
+        .p-g-nav__inner {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .p-g-nav__item a {
+            display: block;
+            padding: 10px 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2d3748;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .p-g-nav__item a:hover {
+            background-color: #e2e8f0;
+            transform: translateY(-1px);
+        }
+
+        .p-g-nav__sub-title {
+            font-size: 0.8rem;
+            color: #718096;
+            margin-bottom: 2px;
+        }
+
+        .p-g-nav__title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .p-g-nav__btn {
+            margin-top: 10px; /* グローバルナビ内のボタンの上マージン */
+            width: 100%; /* 幅いっぱい */
+            text-align: center;
+        }
+
+        .p-g-nav__btn img.p-footer__btn__icon {
+            height: 20px; /* アイコンのサイズ調整 */
+            width: auto;
+            vertical-align: middle;
+        }
+
+
+        /* ハンバーガーメニューのスタイル */
+        .p-hamburger {
+            display: none; /* デフォルトではデスクトップで非表示 */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            z-index: 1001; /* ヘッダーボタンよりも上に表示 */
+        }
+
+        .p-hamburger__lines {
+            width: 30px;
+            height: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .p-hamburger__lines span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #4a5568;
+            transition: all 0.3s ease;
+        }
+
+        .p-hamburger.is-active .p-hamburger__lines span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .p-hamburger.is-active .p-hamburger__lines span:nth-child(2) {
+            opacity: 0;
+        }
+        .p-hamburger.is-active .p-hamburger__lines span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        .p-hamburger__menu {
+            font-size: 0.8rem;
+            color: #4a5568;
+            margin-top: 5px;
+        }
+
+
+        /* 旧ヘッダーナビゲーションのスタイルは削除 */
+        /* header nav ul { ... } */
+        /* header nav ul li a { ... } */
+
 
         /* section */
         section {
@@ -825,34 +938,77 @@
             #ceo-intro .ceo-image-right {
                 max-width: 200px; /* さらに小さい画面での画像サイズ調整 */
             }
-　　/* ビジネスモデルセクションの特定テキスト */ #business-model ul > li { font-size: 1.1rem; /* 少し大きくしました */ font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; /* ゴシック体に変更 */ margin-bottom: 0.8rem; /* 行間を少し調整 */ } #business-model > p:nth-child(3) + ul > li { /* 「私たちは、」以下のリスト */ font-size: 1.1rem; /* 少し大きくしました */ font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; /* ゴシック体に変更 */ margin-bottom: 0.6rem; /* 行間を少し調整 */ 
-　　}
+        }
+        /* ここにビジネスモデルセクションの特定テキストのスタイルを追加 */
+        #business-model ul > li {
+            font-size: 1.1rem; /* 少し大きくしました */
+            font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; /* ゴシック体に変更 */
+            margin-bottom: 0.8rem; /* 行間を少し調整 */
+        }
+
+        #business-model > p:nth-child(3) + ul > li { /* 「私たちは、」以下のリスト */
+            font-size: 1.1rem; /* 少し大きくしました */
+            font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; /* ゴシック体に変更 */
+            margin-bottom: 0.6rem; /* 行間を少し調整 */
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1><a href="#"><img src="images/logo.png" alt="SPINTECHNOLOGY"> </a></h1>
-        <nav>
-            <ul>
-                <li><a href="#company-overview">1.会社概要</a></li>
-                <li><a href="#business-overview">2.事業概要</a></li>
-                <li><a href="#organization-chart">3.組織図</a></li>
-                <li><a href="#ceo-intro">4.社長紹介</a></li>
-                <li><a href="#history">5.沿革</a></li>
-                <li><a href="#engineer-career">6.エンジニアのキャリアパス</a></li>
-                <li><a href="#mvv">7.MVV</a></li>
-                <li><a href="#business-model">8.ビジネスモデル</a></li>
-                <li><a href="#culture">9.組織文化</a></li>
-                <li><a href="#strengths">10.会社の強み</a></li>
-                <li><a href="#rules-systems">11.規則と制度</a></li>
-                <li><a href="#welfare">12.福利厚生</a></li>
-                <li><a href="#future">13.私たちの目指す未来</a></li>
-                <li><a href="#summary">14.まとめ</a></li>
-                <li><a href="#contact">15.お問い合わせ</a></li>
-            </ul>
-        </nav>
+    <header class="p-header l-header">
+        <div class="p-header__inner">
+            <h1 class="p-header__logo">
+                <a href="#"> <img src="images/logo.png" alt="SPINTECHNOLOGY"> </a>
+            </h1>
+            <div class="p-header__right">
+                <div class="p-header__btn p-btn p-btn__session u-desktop">
+                    <a href="#contact"><span>説明会について</span></a> </div>
+                <div class="p-header__btn p-btn p-btn__recruit u-desktop">
+                    <a href="#culture"><span>お役立ち情報</span></a> </div>
+                <button class="p-hamburger p-header__hamburger">
+                    <div class="p-hamburger__lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="p-hamburger__menu">menu</span>
+                </button>
+            </div>
+            <nav class="p-g-nav">
+                <div class="p-g-nav__inner">
+                    <div class="p-g-nav__left">
+                        <div class="p-g-nav__item">
+                            <a href="#"> <p class="p-g-nav__sub-title">TOP</p>
+                                <h2 class="p-g-nav__title">トップページ</h2>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-g-nav__center">
+                        <div class="p-g-nav__item">
+                            <a href="#engineer-career"> <p class="p-g-nav__sub-title">Tips</p>
+                                <h2 class="p-g-nav__title">お役立ち情報</h2>
+                            </a>
+                        </div>
+                        <div class="p-g-nav__item">
+                            <a href="#contact"> <p class="p-g-nav__sub-title">Information seminar</p>
+                                <h2 class="p-g-nav__title">説明会について</h2>
+                            </a>
+                        </div>
+                        <div class="p-g-nav__item">
+                            <a href="#company-overview"> <p class="p-g-nav__sub-title">About</p>
+                                <h2 class="p-g-nav__title">会社概要</h2>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-g-nav__right">
+                        <div class="p-g-nav__btn p-btn p-btn__company">
+                            <a href="#"><span>企業サイト</span></a> </div>
+                        <div class="p-g-nav__btn p-btn p-btn__entry">
+                            <a href="#contact"><span>エントリー</span></a> </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <section id="hero">
@@ -1059,19 +1215,19 @@
 
         <div class="image-gallery">
             <div class="gallery-item">
-                <img src="images/インフラキャリア.png" alt="インフラエンジニアのキャリアパス図" class="content-image" loading="lazy">
+                <img src="images/インフラ.PNG" alt="インフラエンジニアのキャリアパス図" class="content-image" loading="lazy">
                 <p class="career-title">インフラエンジニア キャリアパス</p>
             </div>
             <div class="gallery-item">
-                <img src="images/開発キャリア.png" alt="開発エンジニアのキャリアパス図" class="content-image" loading="lazy">
+                <img src="images/開発.PNG" alt="開発エンジニアのキャリアパス図" class="content-image" loading="lazy">
                 <p class="career-title">開発エンジニア キャリアパス</p>
             </div>
             <div class="gallery-item">
-                <img src="images/コンサルキャリア.png" alt="コンサルエンジニアのキャリアパス図" class="content-image" loading="lazy">
+                <img src="images/コンサル.PNG" alt="コンサルエンジニアのキャリアパス図" class="content-image" loading="lazy">
                 <p class="career-title">コンサルエンジニア キャリアパス</p>
             </div>
             <div class="gallery-item">
-                <img src="images/営業キャリア.png" alt="営業職のキャリアパス図" class="content-image" loading="lazy">
+                <img src="images/営業.PNG" alt="営業職のキャリアパス図" class="content-image" loading="lazy">
                 <p class="career-title">営業職 キャリアパス</p>
             </div>
         </div>
@@ -1208,7 +1364,7 @@
             <li>未経験からでもプロフェッショナルを目指せる教育・サポート体制があります。</li>
         </ul>
         <p class="future-call-to-action">社会の未来を私たちと共に創りませんか？</p>
-        </section>
+    </section>
 
     <section id="contact">
         <h2>15. 採用情報とお問い合わせ</h2>
@@ -1245,6 +1401,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             openTab('overall');
         });
+
+        // ハンバーガーメニューの開閉機能 (JavaScript)
+        // p-hamburgerとp-g-navの要素を取得
+        const hamburger = document.querySelector('.p-hamburger');
+        const gNav = document.querySelector('.p-g-nav');
+
+        if (hamburger && gNav) { // 要素が存在するか確認
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を変化
+                gNav.classList.toggle('is-active');     // グローバルナビゲーションの表示/非表示を切り替え
+            });
+        }
     </script>
 
 </body>
