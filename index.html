@@ -556,8 +556,8 @@
             content: '';
             position: absolute;
             top: -10px; /* 親ノードから横線までの距離 */
-            left: 0px; 
-            right: 0px;
+            left: 0; /* 全幅に伸ばす */
+            right: 0; /* 全幅に伸ばす */
             border-top: 1px solid #cbd5e0;
             height: 0;
         }
@@ -951,6 +951,233 @@
             font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; /* ゴシック体に変更 */
             margin-bottom: 0.6rem; /* 行間を少し調整 */
         }
+
+        /* ================================================= */
+        /* === レスポンシブ対応（追加・修正箇所） === */
+        /* ================================================= */
+
+        /* 768px以下の画面幅に適用 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px; /* 全体のパディングを調整 */
+                padding-top: 110px; /* ヘッダーの高さに合わせて調整 */
+            }
+
+            .p-header {
+                padding: 5px 15px; /* ヘッダーのパディングを調整 */
+            }
+
+            .p-header__logo img {
+                max-height: 60px; /* モバイルでのロゴの高さ */
+            }
+
+            .p-header__right {
+                gap: 10px; /* ヘッダーボタン間のスペースを調整 */
+            }
+
+            .u-desktop {
+                display: none; /* デスクトップ用ボタンを非表示 */
+            }
+
+            .p-hamburger {
+                display: block; /* ハンバーガーメニューを表示 */
+            }
+
+            .p-g-nav {
+                padding: 15px; /* グローバルナビのパディングを調整 */
+                gap: 10px; /* ナビ内アイテム間のスペースを調整 */
+            }
+
+            .p-g-nav__inner {
+                flex-direction: column; /* ナビ内アイテムを縦並びにする */
+                gap: 10px; /* ナビ内アイテム間のスペースを調整 */
+            }
+
+            .p-g-nav__left,
+            .p-g-nav__center,
+            .p-g-nav__right {
+                display: flex;
+                flex-direction: column; /* 各列を縦並びにする */
+                gap: 10px;
+                width: 100%;
+            }
+
+            .p-g-nav__item a,
+            .p-g-nav__btn {
+                padding: 10px; /* ナビ内ボタンのパディングを調整 */
+                font-size: 0.9rem; /* 文字サイズを調整 */
+            }
+
+            section {
+                padding: 20px; /* セクションのパディングを調整 */
+                margin-bottom: 20px;
+            }
+
+            section h2 {
+                font-size: 1.8rem; /* セクションタイトルの文字サイズを調整 */
+                padding: 8px 15px;
+            }
+
+            #hero {
+                padding: 40px 15px;
+            }
+
+            #hero h2 {
+                font-size: 2.2rem; /* ヒーローセクションタイトルの文字サイズを調整 */
+            }
+
+            #hero p {
+                font-size: 1.1rem; /* ヒーローセクション説明文の文字サイズを調整 */
+            }
+
+            section a.btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+
+            .image-gallery {
+                gap: 20px; /* 画像ギャラリーのギャップを調整 */
+            }
+
+            .qr-code-container img {
+                max-width: 200px; /* QRコードの最大幅を調整 */
+            }
+
+            .qr-code-container p {
+                font-size: 0.9rem; /* QRコード説明文の文字サイズを調整 */
+            }
+
+            /* 社長紹介セクションのモバイルでの調整 */
+            #ceo-intro .ceo-content-wrapper {
+                flex-direction: column; /* 縦方向に積み重ねる */
+                align-items: center; /* 中央寄せ */
+                gap: 20px;
+            }
+
+            #ceo-intro .ceo-image-right {
+                order: -1; /* 画像をテキストの上に移動 */
+                max-width: 250px; /* 画像の最大幅を調整 */
+            }
+
+            #ceo-intro .ceo-text-left {
+                text-align: center; /* テキストを中央寄せ */
+            }
+
+            /* 事業概要の小見出し */
+            #business-overview h3.sub-heading {
+                font-size: 1.3rem;
+            }
+
+            /* エンジニアのキャリアパスの項目 */
+            #engineer-career .gallery-item p.career-title {
+                font-size: 1.3rem;
+            }
+
+            /* 組織文化の導入文 */
+            #culture .intro-text {
+                font-size: 1.5rem;
+            }
+
+            /* 会社の強みの4つの自信 */
+            #strengths .strength-point {
+                font-size: 1.3rem;
+            }
+
+            /* ビジネスモデルのリスト */
+            #business-model ul > li {
+                font-size: 1rem;
+            }
+
+            #business-model > p:nth-child(3) + ul > li {
+                font-size: 1rem;
+            }
+        }
+
+        /* 480px以下の画面幅に適用 (さらに小さいスマートフォン向け) */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                padding-top: 100px; /* ヘッダーの高さに合わせて調整 */
+            }
+
+            .p-header__logo img {
+                max-height: 50px;
+            }
+
+            .p-hamburger__menu {
+                font-size: 0.7rem;
+            }
+
+            section {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+                padding: 6px 10px;
+            }
+
+            #hero {
+                padding: 30px 10px;
+            }
+
+            #hero h2 {
+                font-size: 1.8rem;
+            }
+
+            #hero p {
+                font-size: 1rem;
+            }
+
+            section a.btn {
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+
+            .tab-button {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+
+            .tab-content-container {
+                min-height: 180px;
+            }
+            
+            /* 社長紹介セクションのモバイルでの調整 */
+            #ceo-intro .ceo-image-right {
+                max-width: 200px; /* さらに小さい画面での画像サイズ調整 */
+            }
+
+            /* 事業概要の小見出し */
+            #business-overview h3.sub-heading {
+                font-size: 1.1rem;
+            }
+
+            /* エンジニアのキャリアパスの項目 */
+            #engineer-career .gallery-item p.career-title {
+                font-size: 1.1rem;
+            }
+
+            /* 組織文化の導入文 */
+            #culture .intro-text {
+                font-size: 1.3rem;
+            }
+
+            /* 会社の強みの4つの自信 */
+            #strengths .strength-point {
+                font-size: 1.1rem;
+            }
+
+            /* ビジネスモデルのリスト */
+            #business-model ul > li {
+                font-size: 0.9rem;
+            }
+
+            #business-model > p:nth-child(3) + ul > li {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1099,14 +1326,14 @@
                                         <div class="node hr">
                                             <i class="fas fa-users department-icon"></i><br>
                                             人事部
-                                            <div class="details">責任者: 今戸<br>採用: 1名<br>教育: 2名</div>
+                                            <div class="details">責任者: 今戸<br>採用: 1名<br>教育: 1名</div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="node accounting">
                                             <i class="fas fa-calculator department-icon"></i><br>
                                             経理部
-                                            <div class="details">責任者: 石岡</div>
+                                            <div class="details">責任者: 木村</div>
                                         </div>
                                     </li>
                                 </ul>
@@ -1129,7 +1356,7 @@
                                         <div class="node infra-dept-1">
                                             <i class="fas fa-server department-icon"></i><br>
                                             インフラ部
-                                            <div class="details">部長: 西小野<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長: 1名<br>マネジメントメンバー: 4名</div>
                                         </div>
                                         <ul>
                                             <li><div class="node engineer-group">エンジニア: 75名</div></li>
@@ -1139,7 +1366,7 @@
                                         <div class="node infra-dept-2">
                                             <i class="fas fa-network-wired department-icon"></i><br>
                                             インフラ部
-                                            <div class="details">部長: 今井<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長: 1名<br>マネジメントメンバー: 4名</div>
                                         </div>
                                         <ul>
                                             <li><div class="node engineer-group">エンジニア: 75名</div></li>
@@ -1149,7 +1376,7 @@
                                         <div class="node dev-dept">
                                             <i class="fas fa-code department-icon"></i><br>
                                             開発部
-                                            <div class="details">部長: 木田<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長: 1名<br>マネジメントメンバー: 4名</div>
                                         </div>
                                         <ul>
                                             <li><div class="node engineer-group">エンジニア: 75名</div></li>
@@ -1159,7 +1386,7 @@
                                         <div class="node consult-dept">
                                             <i class="fas fa-lightbulb department-icon"></i><br>
                                             コンサル部
-                                            <div class="details">部長: 梅野<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長: 1名<br>マネジメントメンバー: 4名</div>
                                         </div>
                                         <ul>
                                             <li><div class="node engineer-group">エンジニア: 75名</div></li>
@@ -1215,19 +1442,19 @@
 
         <div class="image-gallery">
             <div class="gallery-item">
-                <img src="images/インフラエンジニア.png" alt="インフラエンジニアのキャリアパス図" class="content-image" loading="lazy">
+                <img src="images/インフラキャリア.png" alt="インフラエンジニアのキャリアパス図" class="content-image" loading="lazy">
                 <p class="career-title">インフラエンジニア キャリアパス</p>
             </div>
             <div class="gallery-item">
-                <img src="images/開発エンジニア.png" alt="開発エンジニアのキャリアパス図" class="content-image" loading="lazy">
+                <img src="images/開発キャリア.png" alt="開発エンジニアのキャリアパス図" class="content-image" loading="lazy">
                 <p class="career-title">開発エンジニア キャリアパス</p>
             </div>
             <div class="gallery-item">
-                <img src="images/コンサルエンジニア.png" alt="コンサルエンジニアのキャリアパス図" class="content-image" loading="lazy">
+                <img src="images/コンサルキャリア.png" alt="コンサルエンジニアのキャリアパス図" class="content-image" loading="lazy">
                 <p class="career-title">コンサルエンジニア キャリアパス</p>
             </div>
             <div class="gallery-item">
-                <img src="images/営業キャリア図.png" alt="営業職のキャリアパス図" class="content-image" loading="lazy">
+                <img src="images/営業キャリア.png" alt="営業職のキャリアパス図" class="content-image" loading="lazy">
                 <p class="career-title">営業職 キャリアパス</p>
             </div>
         </div>
@@ -1251,7 +1478,7 @@
         <h2>8. ビジネスモデル</h2>
         <p>SPINTECHNOLOGYのビジネスモデルは、以下の4つの主要なサービスと、それらを支える強固なパートナーシップに基づいています。</p>
         <ul>
-            <li>システムインテグレーション<br>設計から運用までの一貫したサービスソリューションの提供​</li>
+            <li>システムインテグレーション<br>お客様が抱えるITシステムに関する様々な課題に対し、分析から設計、開発、導入、運用まで一貫したソリューションを提供し、最適なシステム構築を支援します。</li>
             <li>受託開発サービス<br>生成AI活用支援、Webサイト、LP、ECサイト制作から、各種Webシステム、業務システム、スマートフォンアプリ開発まで、お客様の多様なニーズにお応えする受託開発を幅広く手がけています。</li>
             <li>IT教育サービス<br>ITスクール事業「MANABI」や企業向けIT研修を通じて、実践的なITスキルや知識習得の機会を提供し、社会全体のIT人材育成に貢献しています。</li>
             <li>運用・保守サービス<br>開発したシステムや既存のIT資産が安定的に稼働し続けるよう、確かな技術力に基づいた運用・保守サービスを提供し、お客様のビジネス継続を力強く支えます。</li>
@@ -1272,7 +1499,7 @@
             <li>役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
         </ul>
 
-        <h3 id="culture-training">組織文化（キャリア研修）</h3>
+        <h3 id="culture-training">組織文化（研修）</h3>
         <img src="images/キャリア研修.png" alt="研修風景のイメージ" class="content-image">
         <ol>
             <li>研修（社会人基礎、IT研修、技術研修）</li>
@@ -1410,7 +1637,7 @@
         if (hamburger && gNav) { // 要素が存在するか確認
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を変化
-                gNav.classList.toggle('is-active');     // グローバルナビゲーションの表示/非表示を切り替え
+                gNav.classList.toggle('is-active');      // グローバルナビゲーションの表示/非表示を切り替え
             });
         }
     </script>
