@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPINTECHNOLOGY 公式サイト - 会社情報・採用</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="株式会社SPINTECHNOLOGYの公式採用サイトです。会社概要、事業内容、組織図、キャリアパス、企業文化、福利厚生などを掲載しています。">
+    
+    <meta property="og:title" content="SPINTECHNOLOGY 公式サイト - 会社情報・採用">
+    <meta property="og:description" content="株式会社SPINTECHNOLOGYの公式採用サイトです。会社概要、事業内容、組織図、キャリアパス、企業文化、福利厚生などを掲載しています。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-lp-url.com"> <meta property="og:image" content="images/ogp-image.jpg"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SPINTECHNOLOGY 公式サイト - 会社情報・採用">
+    <meta name="twitter:description" content="株式会社SPINTECHNOLOGYの公式採用サイトです。会社概要、事業内容、組織図、キャリアパス、企業文化、福利厚生などを掲載しています。">
+    <meta name="twitter:image" content="images/ogp-image.jpg"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
     <style>
         /* ==================================================== */
         /* === グローバルスタイル (公式サイト全体に適用) === */
         /* ==================================================== */
+        html {
+            scroll-behavior: smooth; /* スムーズスクロールの追加 */
+        }
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff, #e0f2f7);
@@ -252,22 +265,22 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        /* 各セクションの h2 に個別の背景色を設定 */
-        #company-overview h2 { background-color: #FFD1DC !important; }
-        #business-overview h2 { background-color: #FFECB3 !important; }
-        #organization-chart h2 { background-color: #D1C4E9 !important; }
-        #ceo-intro h2 { background-color: #C8E6C9 !important; }
-        #history h2 { background-color: #FFAB91 !important; }
-        #engineer-career h2 { background-color: #BBDEFB !important; }
-        #mvv h2 { background-color: #F8BBD0 !important; }
-        #business-model h2 { background-color: #FFE082 !important; }
-        #culture h2 { background-color: #B39DDB !important; }
-        #strengths h2 { background-color: #A5D6A7 !important; }
-        #rules-systems h2 { background-color: #FFCCBC !important; }
-        #welfare h2 { background-color: #CFD8DC !important; }
-        #future h2 { background-color: #B2DFDB !important; }
-        #summary h2 { background-color: #E6EE9C !important; }
-        #contact h2 { background-color: #FFEFD5 !important; }
+        /* 各セクションの h2 に個別の背景色を設定 (!importantを削除) */
+        #company-overview h2 { background-color: #FFD1DC; }
+        #business-overview h2 { background-color: #FFECB3; }
+        #organization-chart h2 { background-color: #D1C4E9; }
+        #ceo-intro h2 { background-color: #C8E6C9; }
+        #history h2 { background-color: #FFAB91; }
+        #engineer-career h2 { background-color: #BBDEFB; }
+        #mvv h2 { background-color: #F8BBD0; }
+        #business-model h2 { background-color: #FFE082; }
+        #culture h2 { background-color: #B39DDB; }
+        #strengths h2 { background-color: #A5D6A7; }
+        #rules-systems h2 { background-color: #FFCCBC; }
+        #welfare h2 { background-color: #CFD8DC; }
+        #future h2 { background-color: #B2DFDB; }
+        #summary h2 { background-color: #E6EE9C; }
+        #contact h2 { background-color: #FFEFD5; }
 
         /* hero */
         #hero {
@@ -574,10 +587,9 @@
 
         /* 組織全体図のノード色 */
         #overall-org-chart-container-tab .node.ceo {
-            background-color: #4299e1; /* 青 */
-            color: #ffffff;
+            background-color: #FFCCCC; /* 薄い赤 */
+            color: #000000; /* 薄い赤だと文字色を黒にした方が見やすいかもしれません */
         }
-        /* ★修正: 組織全体図の各部署ノードのデフォルトスタイルを削除し、個別クラスで指定 */
         #overall-org-chart-container-tab .node.engineering {
             background-color: #e0f7fa; /* 水色 */
             border: 1px solid #80deea;
@@ -607,8 +619,8 @@
 
         /* エンジニアリング事業部のノード色 */
         #engineering-dept-org-chart-container-tab .node.top-level {
-            background-color: #3182ce; /* 青 */
-            color: #ffffff;
+            background-color: #FFFF00; /* 黄色 */
+            color: #000000; /* 黄色だと文字色を黒にした方が見やすいかもしれません */
             font-weight: bold;
         }
         #engineering-dept-org-chart-container-tab .node.infra-dept-1 {
@@ -627,10 +639,15 @@
             background-color: #e6fffa; /* 薄い緑 */
             border: 1px solid #b2f5ea;
         }
+        /* 重複していた .node.engineer-group のスタイルを一つにまとめました */
         #engineering-dept-org-chart-container-tab .node.engineer-group {
             background-color: #e8f5e9; /* 薄い緑 */
             border: 1px solid #a5d6a7;
             color: #2e7d32;
+        }
+        #engineering-dept-org-chart-container-tab .node.data-science-dept {
+            background-color: #dbeafe; /* 薄い赤 */
+            border: 1px solid #93c5fd;
         }
 
         /* エンジニアリング事業部内の階層構造の線 */
@@ -764,8 +781,8 @@
             margin-bottom: 10px;
         }
 
-        /* 2. エンジニアのキャリアパスの項目 */
-        #engineer-career .gallery-item p.career-title {
+        /* 2. エンジニアのキャリアパスの項目 (pタグからh3タグに変更したためセレクタを修正) */
+        #engineer-career .gallery-item h3.career-title {
             font-size: 1.5rem; /* 小見出し (h3) くらいのサイズ */
             font-weight: 600; /* 見出しと同じ太さ */
             color: #2d3748; /* 黒字 */
@@ -1069,7 +1086,7 @@
             }
 
             /* エンジニアのキャリアパスの項目 */
-            #engineer-career .gallery-item p.career-title {
+            #engineer-career .gallery-item h3.career-title { /* pからh3にセレクタを修正 */
                 font-size: 1.3rem;
             }
 
@@ -1145,7 +1162,7 @@
             }
             
             /* 社長紹介セクションのモバイルでの調整 */
-            #ceo-intro .ceo-image-right {
+            #ceo-intro .ceo-content-wrapper {
                 max-width: 200px; /* さらに小さい画面での画像サイズ調整 */
             }
 
@@ -1155,7 +1172,7 @@
             }
 
             /* エンジニアのキャリアパスの項目 */
-            #engineer-career .gallery-item p.career-title {
+            #engineer-career .gallery-item h3.career-title { /* pからh3にセレクタを修正 */
                 font-size: 1.1rem;
             }
 
@@ -1238,7 +1255,7 @@
         </div>
     </header>
 
-    <section id="hero">
+    <section id="hero" data-aos="fade-up" data-aos-duration="1000">
         <div>
             <h2>志しむことから全てがはじまる</h2>
             <p>あなたの未来をSPINTECHNOLOGYで作りませんか？</p>
@@ -1246,7 +1263,7 @@
         </div>
     </section>
 
-    <section id="company-overview">
+    <section id="company-overview" data-aos="fade-right">
         <h2>1. 会社概要</h2>
         <dl>
             <dt>会社名</dt><dd>株式会社 SPIN TECHNOLOGY</dd>
@@ -1261,38 +1278,38 @@
         </dl>
     </section>
 
-    <section id="business-overview">
+    <section id="business-overview" data-aos="fade-left">
         <h2>2. 事業概要</h2>
-        <h3 class="sub-heading">システムインテグレーション</h3>
+        <h3 class="sub-heading" data-aos="zoom-in-up" data-aos-delay="200">システムインテグレーション</h3>
         <ul>
-            <li>お客様のITシステムに関する様々な課題に対し、分析から設計、開発、導入、運用まで一貫したソリューションを提供し、最適なシステム構築を支援します。</li>
+            <li data-aos="fade-up" data-aos-delay="300">お客様のITシステムに関する様々な課題に対し、分析から設計、開発、導入、運用まで一貫したソリューションを提供し、最適なシステム構築を支援します。</li>
         </ul>
-        <h3 class="sub-heading">受託事業</h3>
+        <h3 class="sub-heading" data-aos="zoom-in-up" data-aos-delay="200">受託事業</h3>
         <ul>
-            <li>生成AI活用支援・開発</li>
-            <li>Webアプリケーション・システム開発</li>
-            <li>スマートフォンアプリケーション</li>
-            <li>Webサイト・LP・ECサイト</li>
+            <li data-aos="fade-up" data-aos-delay="300">生成AI活用支援・開発</li>
+            <li data-aos="fade-up" data-aos-delay="350">Webアプリケーション・システム開発</li>
+            <li data-aos="fade-up" data-aos-delay="400">スマートフォンアプリケーション</li>
+            <li data-aos="fade-up" data-aos-delay="450">Webサイト・LP・ECサイト</li>
         </ul>
-        <h3 class="sub-heading">SI事業</h3>
+        <h3 class="sub-heading" data-aos="zoom-in-up" data-aos-delay="200">SI事業</h3>
         <ul>
-            <li>システムソリューション</li>
-            <li>テクニカルアシスタントソリューション</li>
-            <li>IT運用サポート</li>
-            <li>通信ソリューション</li>
-            <li>キッティングソリューション</li>
+            <li data-aos="fade-up" data-aos-delay="300">システムソリューション</li>
+            <li data-aos="fade-up" data-aos-delay="350">テクニカルアシスタントソリューション</li>
+            <li data-aos="fade-up" data-aos-delay="400">IT運用サポート</li>
+            <li data-aos="fade-up" data-aos-delay="450">通信ソリューション</li>
+            <li data-aos="fade-up" data-aos-delay="500">キッティングソリューション</li>
         </ul>
-        <h3 class="sub-heading">ITスクール事業</h3>
+        <h3 class="sub-heading" data-aos="zoom-in-up" data-aos-delay="200">ITスクール事業</h3>
         <ul>
-            <li>運用保守 MANABI事業</li>
-            <li>企業IT研修</li>
+            <li data-aos="fade-up" data-aos-delay="300">運用保守 MANABI事業</li>
+            <li data-aos="fade-up" data-aos-delay="350">企業IT研修</li>
         </ul>
     </section>
 
-    <section id="organization-chart">
+    <section id="organization-chart" data-aos="fade-down">
         <h2>3. 組織図</h2>
         <div class="tabs">
-            <div class="tab-buttons">
+            <div class="tab-buttons" data-aos="fade-up" data-aos-delay="100">
                 <button class="tab-button active" onclick="openTab('overall')">組織全体図</button>
                 <button class="tab-button" onclick="openTab('engineering')">エンジニアリング事業部</button>
             </div>
@@ -1302,38 +1319,38 @@
                     <div class="org-chart">
                         <ul>
                             <li>
-                                <div class="node ceo">
+                                <div class="node ceo" data-aos="zoom-in">
                                     <i class="fas fa-user-tie department-icon"></i><br>
                                     岡田
                                     <div class="title">代表取締役</div>
                                 </div>
                                 <ul>
                                     <li>
-                                        <div class="node engineering">
+                                        <div class="node engineering" data-aos="slide-up" data-aos-delay="100">
                                             <i class="fas fa-cogs department-icon"></i><br>
                                             エンジニアリング事業部
-                                            <div class="details">責任者: 部長4名<br>エンジニア: 300名</div>
+                                            <div class="details">責任者: 部長5名<br>エンジニア: 300名</div>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="node sales">
+                                        <div class="node sales" data-aos="slide-up" data-aos-delay="200">
                                             <i class="fas fa-handshake department-icon"></i><br>
                                             営業部
                                             <div class="details">責任者: 斎藤<br>営業: 4名</div>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="node hr">
+                                        <div class="node hr" data-aos="slide-up" data-aos-delay="300">
                                             <i class="fas fa-users department-icon"></i><br>
                                             人事部
-                                            <div class="details">責任者: 今戸<br>採用: 1名<br>教育: 1名</div>
+                                            <div class="details">責任者: 今戸<br>採用: 1名<br>教育: 2名</div>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="node accounting">
+                                        <div class="node accounting" data-aos="slide-up" data-aos-delay="400">
                                             <i class="fas fa-calculator department-icon"></i><br>
                                             経理部
-                                            <div class="details">責任者: 木村</div>
+                                            <div class="details">責任者: 石岡</div>
                                         </div>
                                     </li>
                                 </ul>
@@ -1348,48 +1365,58 @@
                     <div class="org-chart">
                         <ul>
                             <li>
-                                <div class="node top-level">
+                                <div class="node top-level" data-aos="zoom-in">
                                     エンジニアリング事業部
                                 </div>
                                 <ul>
                                     <li>
-                                        <div class="node infra-dept-1">
+                                        <div class="node infra-dept-1" data-aos="slide-up" data-aos-delay="100">
                                             <i class="fas fa-server department-icon"></i><br>
                                             インフラ部
-                                            <div class="details">部長:西小野<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長:今井<br>マネジメントメンバー: 4名</div>
                                         </div>
                                         <ul>
-                                            <li><div class="node engineer-group">エンジニア: 75名</div></li>
+                                            <li><div class="node engineer-group" data-aos="fade-up" data-aos-delay="200">エンジニア: 60名</div></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <div class="node infra-dept-2">
+                                        <div class="node infra-dept-2" data-aos="slide-up" data-aos-delay="150">
                                             <i class="fas fa-network-wired department-icon"></i><br>
                                             インフラ部
-                                            <div class="details">部長: 今井<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長: 西小野<br>マネジメントメンバー: 4名</div>
                                         </div>
                                         <ul>
-                                            <li><div class="node engineer-group">エンジニア: 75名</div></li>
+                                            <li><div class="node engineer-group" data-aos="fade-up" data-aos-delay="250">エンジニア: 60名</div></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <div class="node dev-dept">
+                                        <div class="node dev-dept" data-aos="slide-up" data-aos-delay="200">
                                             <i class="fas fa-code department-icon"></i><br>
                                             開発部
                                             <div class="details">部長: 木田<br>マネジメントメンバー: 4名</div>
                                         </div>
                                         <ul>
-                                            <li><div class="node engineer-group">エンジニア: 75名</div></li>
+                                            <li><div class="node engineer-group" data-aos="fade-up" data-aos-delay="300">エンジニア: 60名</div></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <div class="node consult-dept">
+                                        <div class="node consult-dept" data-aos="slide-up" data-aos-delay="250">
                                             <i class="fas fa-lightbulb department-icon"></i><br>
                                             コンサル部
                                             <div class="details">部長: 梅野<br>マネジメントメンバー: 4名</div>
                                         </div>
                                         <ul>
-                                            <li><div class="node engineer-group">エンジニア: 75名</div></li>
+                                            <li><div class="node engineer-group" data-aos="fade-up" data-aos-delay="350">エンジニア: 60名</div></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="node data-science-dept" data-aos="slide-up" data-aos-delay="300">
+                                            <i class="fas fa-chart-line department-icon"></i><br>
+                                            データサイエンス部
+                                            <div class="details">部長: 冨澤<br>マネジメントメンバー: 2名</div>
+                                        </div>
+                                        <ul>
+                                            <li><div class="node engineer-group" data-aos="fade-up" data-aos-delay="400">エンジニア: 60名</div></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -1398,217 +1425,216 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="ceo-intro">
+    <section id="ceo-intro" data-aos="fade-up">
         <h2>4. 社長紹介</h2>
         <div class="ceo-content-wrapper">
-            <div class="ceo-text-left">
+            <div class="ceo-text-left" data-aos="fade-right" data-aos-delay="200">
                 <p><strong>岡田佳祐</strong></p>
                 <ul>
-                    <li>趣味：フットサル、野球、ゴルフ、スマブラ</li>
+                    <li data-aos="fade-up" data-aos-delay="300">趣味：フットサル、野球、ゴルフ、スマブラ</li>
                 </ul>
                 <h3>主な経歴</h3>
                 <ul>
-                    <li>営業職として業界3000人の中で3年連続TOPセールスの獲得</li>
-                    <li>マネジメント職を経て、100名規模の事業責任者として毎年200%の事業拡大に成功し同社役員に就任</li>
-                    <li>2021年9月1日　株式会社 SPIN TECHNOLOGY設立</li>
+                    <li data-aos="fade-up" data-aos-delay="350">営業職として業界3000人の中で3年連続TOPセールスの獲得</li>
+                    <li data-aos="fade-up" data-aos-delay="400">マネジメント職を経て、100名規模の事業責任者として毎年200%の事業拡大に成功し同社役員に就任</li>
+                    <li data-aos="fade-up" data-aos-delay="450">2021年9月1日　株式会社 SPIN TECHNOLOGY設立</li>
                 </ul>
             </div>
-            <div class="ceo-image-right">
-                <img src="images/岡田社長.png" alt="岡田代表取締役の顔写真" class="content-image">
+            <div class="ceo-image-right" data-aos="fade-left" data-aos-delay="300">
+                <img src="images/岡田社長.png" alt="岡田代表取締役の顔写真" class="content-image" loading="lazy">
             </div>
         </div>
     </section>
 
-    <section id="history">
+    <section id="history" data-aos="fade-up">
         <h2>5. 沿革</h2>
         <ul>
-            <li>2021年9月　株式会社SPIN TECHNOLOGY設立</li>
-            <li>設立1年半で正社員160名の達成</li>
-            <li>2022年11月　本社移転</li>
-            <li>2021年8月　ITスクール開講</li>
-            <li>2023年9月　雑誌「ベンチャー通信」に特集</li>
-            <li>2024年1月　「2024年ベストベンチャー100」に選出</li>
-            <li>2024年7月　フットサル部がYahoo!ニュースに記載</li>
-            <li>2024年9月　米国大手経済紙「ウォールストリートジャーナル」に特集</li>
+            <li data-aos="fade-up" data-aos-delay="100">2021年9月　株式会社SPIN TECHNOLOGY設立</li>
+            <li data-aos="fade-up" data-aos-delay="150">設立1年半で正社員160名の達成</li>
+            <li data-aos="fade-up" data-aos-delay="200">2022年11月　本社移転</li>
+            <li data-aos="fade-up" data-aos-delay="250">2021年8月　ITスクール開講</li>
+            <li data-aos="fade-up" data-aos-delay="300">2023年9月　雑誌「ベンチャー通信」に特集</li>
+            <li data-aos="fade-up" data-aos-delay="350">2024年1月　「2024年ベストベンチャー100」に選出</li>
+            <li data-aos="fade-up" data-aos-delay="400">2024年7月　フットサル部がYahoo!ニュースに記載</li>
+            <li data-aos="fade-up" data-aos-delay="450">2024年9月　米国大手経済紙「ウォールストリートジャーナル」に特集</li>
         </ul>
     </section>
 
-    <section id="engineer-career">
-        <h2>6. エンジニアのキャリアパス</h2>
+    <section id="engineer-career" data-aos="fade-up">
+        <h2>6. エンジニアと営業のキャリアパス</h2>
         <p></p>
 
         <div class="image-gallery">
-            <div class="gallery-item">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
                 <img src="images/インフラエンジニア.png" alt="インフラエンジニアのキャリアパス図" class="content-image" loading="lazy">
-                <p class="career-title">インフラエンジニア キャリアパス</p>
+                <h3 class="career-title">インフラエンジニアのキャリアパス</h3> 
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
                 <img src="images/開発エンジニア.png" alt="開発エンジニアのキャリアパス図" class="content-image" loading="lazy">
-                <p class="career-title">開発エンジニア キャリアパス</p>
+                <h3 class="career-title">開発エンジニアのキャリアパス</h3>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
                 <img src="images/コンサルエンジニア.png" alt="コンサルエンジニアのキャリアパス図" class="content-image" loading="lazy">
-                <p class="career-title">コンサルエンジニア キャリアパス</p>
+                <h3 class="career-title">コンサルエンジニアのキャリアパス</h3>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
                 <img src="images/営業キャリア図.png" alt="営業職のキャリアパス図" class="content-image" loading="lazy">
-                <p class="career-title">営業職 キャリアパス</p>
+                <h3 class="career-title">営業のキャリアパス</h3>
             </div>
         </div>
     </section>
 
-    <section id="mvv">
+    <section id="mvv" data-aos="fade-up">
         <h2>7. SPINTECHNOLOGYのMVV</h2>
-        <h3 class="mvv-title">Mission (ミッション)</h3>
-        <p>ITで人を育て、お客様と志を共にする未来を創る</p>
-        <h3 class="mvv-title">Vision (ビジョン)</h3>
-        <p>「技術力 × 人間力」 = プロフェッショナル<br>社会に貢献できる真のプロフェッショナルを育てられる会社</p>
-        <h3 class="mvv-title">Values (バリュー)</h3>
+        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="100">Mission (ミッション)</h3>
+        <p data-aos="fade-up" data-aos-delay="150">ITで人を育て、お客様と志を共にする未来を創る</p>
+        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="200">Vision (ビジョン)</h3>
+        <p data-aos="fade-up" data-aos-delay="250">「技術力 × 人間力」 = プロフェッショナル<br>社会に貢献できる真のプロフェッショナルを育てられる会社</p>
+        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="300">Values (バリュー)</h3>
         <ul>
-            <li>誠実：行動と言動に責任を持って真面目に向き合うこと</li>
-            <li>素直：他人からの意見を受け入れ、己を見直したり改善すること</li>
-            <li>挑戦：失敗や困難を恐れず新しいことに果敢に行動する姿勢</li>
+            <li data-aos="fade-up" data-aos-delay="350">誠実：行動と言動に責任を持って真面目に向き合うこと</li>
+            <li data-aos="fade-up" data-aos-delay="400">素直：他人からの意見を受け入れ、己を見直したり改善すること</li>
+            <li data-aos="fade-up" data-aos-delay="450">挑戦：失敗や困難を恐れず新しいことに果敢に行動する姿勢</li>
             </ul>
     </section>
 
-    <section id="business-model">
+    <section id="business-model" data-aos="fade-up">
         <h2>8. ビジネスモデル</h2>
-        <p>SPINTECHNOLOGYのビジネスモデルは、以下の4つの主要なサービスと、それらを支える強固なパートナーシップに基づいています。</p>
+        <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYのビジネスモデルは、以下の4つの主要なサービスと、それらを支える強固なパートナーシップに基づいています。</p>
         <ul>
-            <li>システムインテグレーション<br>お客様が抱えるITシステムに関する様々な課題に対し、分析から設計、開発、導入、運用まで一貫したソリューションを提供し、最適なシステム構築を支援します。</li>
-            <li>受託開発サービス<br>生成AI活用支援、Webサイト、LP、ECサイト制作から、各種Webシステム、業務システム、スマートフォンアプリ開発まで、お客様の多様なニーズにお応えする受託開発を幅広く手がけています。</li>
-            <li>IT教育サービス<br>ITスクール事業「MANABI」や企業向けIT研修を通じて、実践的なITスキルや知識習得の機会を提供し、社会全体のIT人材育成に貢献しています。</li>
-            <li>運用・保守サービス<br>開発したシステムや既存のIT資産が安定的に稼働し続けるよう、確かな技術力に基づいた運用・保守サービスを提供し、お客様のビジネス継続を力強く支えます。</li>
+            <li data-aos="fade-up" data-aos-delay="150">システムインテグレーション<br>設計から運用までの一貫したサービスソリューションの提供</li>
+            <li data-aos="fade-up" data-aos-delay="200">受託開発サービス<br>生成AI活用支援、Webサイト、LP、ECサイト制作から、各種Webシステム、業務システム、スマートフォンアプリ開発まで、お客様の多様なニーズにお応えする受託開発を幅広く手がけています。</li>
+            <li data-aos="fade-up" data-aos-delay="250">IT教育サービス<br>ITスクール事業「MANABI」や企業向けIT研修を通じて、実践的なITスキルや知識習得の機会を提供し、社会全体のIT人材育成に貢献しています。</li>
+            <li data-aos="fade-up" data-aos-delay="300">運用・保守サービス<br>開発したシステムや既存のIT資産が安定的に稼働し続けるよう、確かな技術力に基づいた運用・保守サービスを提供し、お客様のビジネス継続を力強く支えます。</li>
         </ul>
-        <p>私たちは、</p>
+        <p data-aos="fade-up" data-aos-delay="350">今後の事業戦略</p>
         <ul>
-            <li>お客様との強固なパートナーシップを築く</li>
-            <li>社員一人ひとりの成長が、会社の力となる</li>
-            <li>ITの力で、より良い社会の実現に貢献する</li>
+            <li data-aos="fade-up" data-aos-delay="400">お客様との強固なパートナーシップを築く</li>
+            <li data-aos="fade-up" data-aos-delay="450">社員一人ひとりの成長が、会社の力となる</li>
+            <li data-aos="fade-up" data-aos-delay="500">ITの力で、より良い社会の実現に貢献する</li>
         </ul>
     </section>
 
-    <section id="culture">
+    <section id="culture" data-aos="fade-up">
         <h2>9. 組織文化</h2>
-        <h3 class="intro-text">スピンの組織文化とは？</h3>
+        <h3 class="intro-text" data-aos="fade-up" data-aos-delay="100">スピンの組織文化とは？</h3>
         <ul>
-            <li>未経験からプロフェッショナルを目指せる、人を育てる文化があり、充実した研修制度や一人一人が多様な仕事に挑戦し成長できる環境が整っている。</li>
-            <li>役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
+            <li data-aos="fade-up" data-aos-delay="150">未経験からプロフェッショナルを目指せる、人を育てる文化があり、充実した研修制度や一人一人が多様な仕事に挑戦し成長できる環境が整っている。</li>
+            <li data-aos="fade-up" data-aos-delay="200">役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
         </ul>
 
-        <h3 id="culture-training">組織文化（研修）</h3>
-        <img src="images/キャリア研修.png" alt="研修風景のイメージ" class="content-image">
+        <h3 id="culture-training" data-aos="fade-up" data-aos-delay="250">組織文化（研修）</h3>
+        <img src="images/キャリア研修.png" alt="研修風景のイメージ" class="content-image" loading="lazy" data-aos="zoom-in" data-aos-delay="300">
         <ol>
-            <li>研修（社会人基礎、IT研修、技術研修）</li>
-            <li>キャリア研修（インフラ・開発・コンサル）</li>
-            <li>各勉強会(社内技術研修含め)</li>
+            <li data-aos="fade-up" data-aos-delay="350">研修（社会人基礎、IT研修、技術研修）</li>
+            <li data-aos="fade-up" data-aos-delay="400">キャリア研修（インフラ・開発・コンサル）</li>
+            <li data-aos="fade-up" data-aos-delay="450">各勉強会(社内技術研修含め)</li>
         </ol>
 
-        <h3 id="culture-club">組織文化（部活）</h3>
+        <h3 id="culture-club" data-aos="fade-up" data-aos-delay="500">組織文化（部活）</h3>
         <div class="image-gallery">
-            <div class="gallery-item">
-                <img src="images/部活体育館スポーツ.png" alt="部活動の風景1" class="content-image">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
+                <img src="images/部活体育館スポーツ.png" alt="部活動の風景1" class="content-image" loading="lazy">
             </div>
-            <div class="gallery-item">
-                <img src="images/スマブラ部.png" alt="部活動の風景2" class="content-image">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+                <img src="images/スマブラ部.png" alt="部活動の風景2" class="content-image" loading="lazy">
             </div>
         </div>
 
-        <h3 id="culture-recreation">組織文化（レクリエーション）</h3>
+        <h3 id="culture-recreation" data-aos="fade-up" data-aos-delay="650">組織文化（レクリエーション）</h3>
+　　<ol>
+            <li data-aos="fade-up" data-aos-delay="350">健康や日々のリフレッシュする</li>
+            <li data-aos="fade-up" data-aos-delay="400">社員同士の交流を通して悩み事やキャリア相談をしやすい雰囲気作りをする</li>
+            <li data-aos="fade-up" data-aos-delay="450">社員が定着し、共に成長できる場所</li>
+        </ol>
         <div class="image-gallery">
-            <div class="gallery-item">
-                <img src="images/BBQレク.png" alt="レクリエーション風景1" class="content-image">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="700">
+                <img src="images/BBQレク.png" alt="レクリエーション風景1" class="content-image" loading="lazy">
             </div>
-            <div class="gallery-item">
-                <img src="images/散策レク.png" alt="レクリエーション風景2" class="content-image">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="750">
+                <img src="images/散策レク.png" alt="レクリエーション風景2" class="content-image" loading="lazy">
             </div>
         </div>
     </section>
 
-    <section id="strengths">
+    <section id="strengths" data-aos="fade-up">
         <h2>10. 会社の強み</h2>
         <ol>
-            <li><h3 class="strength-point">会社に対する自信</h3><br>当社は、明確なビジョンに基づいた事業戦略と、変化を恐れず挑戦し続ける企業文化により、持続的な成長を実現しています。信頼できるITパートナーとして、お客様と共に未来を創造します。</li>
-            <li><h3 class="strength-point">事業に対する自信</h3><br>お客様の真の課題解決を目指し、より上流工程からビジネスに貢献する一次請けとしての事業を強化しています。社会のニーズに応える革新的なITソリューションを提供できることに自信を持っています。</li>
-            <li><h3 class="strength-point">商品・サービスに対する自信</h3><br>高い技術力と豊富な経験を持つプロフェッショナル集団が、お客様のビジネスを加速させる高品質かつ信頼性の高いITサービスを提供いたします。私たちが提供する価値に、絶対の自信を持っています。</li>
-            <li><h3 class="strength-point">社員（自分たち）に対する自信</h3><br>当社の社員は、自身の成長に情熱を燃やし常に最高のパフォーマンスを目指すプロフェッショナルです。充実した教育・サポート体制のもと、日々進化を続ける私たちの「人」こそが、最大の強みであり、お客様の成功への鍵となります。</li>
+            <li data-aos="fade-up" data-aos-delay="100"><h3 class="strength-point">会社に対する自信</h3><br>当社は、明確なビジョンに基づいた事業戦略と、変化を恐れず挑戦し続ける企業文化により、持続的な成長を実現しています。信頼できるITパートナーとして、お客様と共に未来を創造します。</li>
+            <li data-aos="fade-up" data-aos-delay="200"><h3 class="strength-point">事業に対する自信</h3><br>お客様の真の課題解決を目指し、より上流工程からビジネスに貢献する一次請けとしての事業を強化しています。社会のニーズに応える革新的なITソリューションを提供できることに自信を持っています。</li>
+            <li data-aos="fade-up" data-aos-delay="300"><h3 class="strength-point">商品・サービスに対する自信</h3><br>高い技術力と豊富な経験を持つプロフェッショナル集団が、お客様のビジネスを加速させる高品質かつ信頼性の高いITサービスを提供いたします。私たちが提供する価値に、絶対の自信を持っています。</li>
+            <li data-aos="fade-up" data-aos-delay="400"><h3 class="strength-point">社員（自分たち）に対する自信</h3><br>当社の社員は、自身の成長に情熱を燃やし常に最高のパフォーマンスを目指すプロフェッショナルです。充実した教育・サポート体制のもと、日々進化を続ける私たちの「人」こそが、最大の強みであり、お客様の成功への鍵となります。</li>
         </ol>
     </section>
 
-    <section id="rules-systems">
+    <section id="rules-systems" data-aos="fade-up">
         <h2>11. 規則と制度</h2>
-        <p><span class="red-note">※一部抜粋</span></p>
+        <p data-aos="fade-up" data-aos-delay="100"><span class="red-note">※一部抜粋</span></p>
         <ol>
-            <li>交通費、精算に関して</li>
-            <li>勤怠表の運用について</li>
-            <li>家賃手当について</li>
-            <li>資格手当について</li>
-            <li>リファラル制度について</li>
-            <li>有給について</li>
+            <li data-aos="fade-up" data-aos-delay="150">交通費、精算</li>
+            <li data-aos="fade-up" data-aos-delay="200">勤怠表の運営</li>
+            <li data-aos="fade-up" data-aos-delay="250">家賃手当</li>
+            <li data-aos="fade-up" data-aos-delay="300">資格手当</li>
+            <li data-aos="fade-up" data-aos-delay="350">リファラル制度</li>
+            <li data-aos="fade-up" data-aos-delay="400">有給取得</li>
         </ol>
     </section>
 
-    <section id="welfare">
-        <h2>12. 福利厚生</h2>
-        <p><span class="red-note">※一部抜粋</span></p>
-        <ul>
-            <li>家賃補助</li>
-            <li>リモート手当</li>
-            <li>資格手当</li>
-            <li>交通費</li>
-        </ul>
-    </section>
-
-    <section id="future">
-        <h2>13. 私たちの目指す未来</h2>
+    <section id="future" data-aos="fade-up">
+        <h2>12. 私たちの目指す未来</h2>
         <ol>
             <li>
-                <h3 class="future-subtitle">お客様と共にビジネスの未来を創る</h3>
-                お客様とのパートナーシップを強化し、ビジネス成長に不可欠なITソリューションを提供します。<br>
-                真のニーズを深く理解し、迅速かつ柔軟な課題解決で、お客様と共に成功を追求します。
+                <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="100">お客様と共にビジネスの未来を創る</h3>
+                <p data-aos="fade-up" data-aos-delay="150">お客様とのパートナーシップを強化し、ビジネス成長に不可欠なITソリューションを提供します。<br>
+                真のニーズを深く理解し、迅速かつ柔軟な課題解決で、お客様と共に成功を追求します。</p>
             </li>
             <li>
-                <h3 class="future-subtitle">個の成長がチームの力に輝けるプロフェッショナルへ</h3>
-                一人ひとりの成長と活躍を最大限に支援し、技術力と人間力を兼ね備えたプロフェッショナルを育成します。<br>
+                <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="200">個の成長がチームの力に輝けるプロフェッショナルへ</h3>
+                <p data-aos="fade-up" data-aos-delay="250">一人ひとりの成長と活躍を最大限に支援し、技術力と人間力を兼ね備えたプロフェッショナルを育成します。<br>
                 やりがいを持って挑戦できる環境で、社員の幸福度とお客様への価値提供を高めます。<br>
-                未経験でも安心して成長できる教育・サポート体制が整っています。
+                未経験でも安心して成長できる教育・サポート体制が整っています。</p>
             </li>
             <li>
-                <h3 class="future-subtitle">ITでより良い社会の実現へ貢献</h3>
-                私たちのMissionとVisionには、ITの力で社会に貢献したいという強い想いがあります。<br>
-                人材育成と技術革新を通じ、お客様、そして社会全体の発展に貢献し続けます。
+                <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="300">ITでより良い社会の実現へ貢献</h3>
+                <p data-aos="fade-up" data-aos-delay="350">私たちのMissionとVisionには、ITの力で社会に貢献したいという強い想いがあります。<br>
+                人材育成と技術革新を通じ、お客様、そして社会全体の発展に貢献し続けます。</p>
             </li>
         </ol>
     </section>
 
-    <section id="summary">
-        <h2>14. まとめ</h2>
+    <section id="summary" data-aos="fade-up">
+        <h2>13. まとめ</h2>
         <ul>
-            <li>SPIN TECHNOLOGYは、成長意欲と挑戦する心を大切にする会社です。</li>
-            <li>未経験からでもプロフェッショナルを目指せる教育・サポート体制があります。</li>
+            <li data-aos="fade-up" data-aos-delay="100">SPIN TECHNOLOGYは、成長意欲と挑戦する心を大切にする会社です。</li>
+            <li data-aos="fade-up" data-aos-delay="150">未経験からでもプロフェッショナルを目指せる教育・サポート体制があります。</li>
         </ul>
-        <p class="future-call-to-action">社会の未来を私たちと共に創りませんか？</p>
+        <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">社会の未来を私たちと共に創りませんか？</p>
     </section>
 
-    <section id="contact">
-        <h2>15. 採用情報とお問い合わせ</h2>
+    <section id="contact" data-aos="fade-up">
+        <h2>14. 採用情報</h2>
         <ul>
-            <li>採用情報<br><a href="https://spintechnology.jp/recruit/entry/" target="_blank">https://spintechnology.jp/recruit/entry/</a></li>
+            <li data-aos="fade-up" data-aos-delay="100">採用情報<br><a href="https://spintechnology.jp/recruit/entry/" target="_blank">https://spintechnology.jp/recruit/entry/</a></li>
         </ul>
-        <h4 class="contact-call-to-action">ご質問があればお気軽にご連絡ください。</h4>
-        <div class="qr-code-container">
-            <img src="images/お問い合わせQRコード.png" alt="お問い合わせ用QRコード" class="content-image">
-            <p>スマートフォンで読み取ってお問い合わせください</p>
-        </div>
-    </section>
+        <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="150">ご質問があればお気軽にご連絡ください。</h4>
+            </section>
 
     <footer>
         <p>&copy; 2025 SPINTECHNOLOGY All Rights Reserved.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // アニメーションのduration（ミリ秒）
+            easing: 'ease-in-out-back', // イージングの設定
+            delay: 100, // アニメーション開始までの遅延（ミリ秒）
+            once: true, // アニメーションを一度だけ実行
+            mirror: false, // スクロールバックしても再度アニメーションしない
+        });
+    </script>
     <script>
         function openTab(tabName) {
             var i;
@@ -1644,4 +1670,3 @@
 
 </body>
 </html>
-
