@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -20,13 +19,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
-　　<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-　　<script>
-  　　window.dataLayer = window.dataLayer || [];
-  　　function gtag(){dataLayer.push(arguments);}
-  　　gtag('js', new Date());
-  　　gtag('config', 'G-TY2ZY9YFGG'); // ここを改行して、適切なインデントを適用
-　　</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-TY2ZY9YFGG'); // ここを改行して、適切なインデントを適用
+    </script>
     <style>
         /* ==================================================== */
         /* === グローバルスタイル (公式サイト全体に適用) === */
@@ -37,22 +36,25 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff, #e0f2f7);
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-x: hidden;
-            overflow-y: auto;
-            /* スクロールを許可 */
-            /* ★追加・変更点: ヘッダー固定のためのパディング調整 */
-            padding-top: 130px;
-            /* 新しいヘッダーの高さに合わせて調整 */
-        }
+    font-family: 'Inter', sans-serif;
+    /* ★変更点: 元の背景設定をコメントアウト */
+    /* background: linear-gradient(135deg, #66b3ff, #3366cc); */
+    /* ★変更点: 画像背景、繰り返しなし、全面表示、中央配置 */
+    background-image: url('images/PC透かし.jpeg'); /* 添付画像をここに指定 */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 130px;
+}
 
         /* ヘッダーのスタイル - 新しいヘッダーに合わせて大幅変更 */
         .p-header {
@@ -131,11 +133,11 @@
             background-color: #A5D6A7;
             /* ミディアムグリーン */
         }
-　　　　　
+
         .p-btn__seminar {
-　　　　　　　background-color: #FFECB3; 
-　　　　　　　/* ライトイエロー */
-　　　　　}
+            background-color: #FFECB3;
+            /* ライトイエロー */
+        }
 
         .p-btn__company {
             /* グローバルナビゲーション内の企業サイトボタン */
@@ -286,37 +288,44 @@
 
 
         /* section */
-        section {
-            width: 100%;
-            max-width: 1200px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: left;
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-        }
+section {
+    width: 100%;
+    max-width: 1200px;
+    /* ★変更点: 背景色を薄い白に半透明で指定 */
+    background-color: rgba(255, 255, 255, 0.8); /* ここを修正 */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
 
         section:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
 
+        /* ★変更点: 各セクションのh2のスタイルを統一し、文字色を白に */
         section h2 {
             font-size: 2.25rem;
             font-weight: 700;
-            color: #2d3748;
+            color: #ffffff;
+            /* 文字色を白に */
             margin-bottom: 20px;
             text-align: center;
             border-bottom: none;
-            padding-bottom: 10px;
-            padding-top: 10px;
+            padding: 15px 20px;
+            /* パディングを調整 */
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            /* より丸みを持たせる */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            /* シャドウを強める */
+            background-color: #4299e1;
+            /* デフォルトのh2背景色 (各セクションで上書き) */
         }
 
-        /* 各セクションの h2 に個別の背景色を設定 (!importantを削除) */
+        /* 各セクションの h2 に個別の背景色を設定 */
         #company-overview h2 {
             background-color: #FFD1DC;
         }
@@ -379,13 +388,15 @@
 
         /* hero */
         #hero {
+            /* ★変更点: ヒーローセクションの背景を3枚目の画像に合わせる */
             background: linear-gradient(to right, #4299e1, #63b3ed);
             color: white;
             text-align: center;
             padding: 60px 20px;
             margin-bottom: 30px;
             border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(66, 153, 225, 0.3);
+            /* ★変更点: box-shadowを調整 */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             transition: none;
         }
 
@@ -395,6 +406,10 @@
             margin-bottom: 15px;
             border-bottom: none;
             padding-bottom: 0;
+            box-shadow: none;
+            /* ヒーロー内のh2にはシャドウを適用しない */
+            background-color: transparent;
+            /* ヒーロー内のh2には背景色を適用しない */
         }
 
         #hero p {
@@ -425,7 +440,8 @@
         /* footer */
         footer {
             width: 100%;
-            background-color: #2d3748;
+            /* ★変更点: フッターの背景色をより濃い青系に */
+            background-color: #2a52be;
             color: #ffffff;
             text-align: center;
             padding: 20px 0;
@@ -1096,7 +1112,7 @@
             margin-top: 35px;
             /* 上部にQRコードとの余白を多めに確保 */
             margin-bottom: 25px;
-            /* 下部に余白を確保 */
+            /* 下部の余白を確保 */
             line-height: 1.5;
             /* 行の高さ */
             padding-bottom: 5px;
@@ -1497,10 +1513,12 @@
                 <div class="p-header__btn p-btn p-btn__recruit u-desktop">
                     <a href="#culture"><span>お役立ち情報</span></a>
                 </div>
-                <div class="p-header__btn p-btn p-btn__seminar u-desktop"> <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969" target="_blank">
-                    <span>26卒の説明会はコチラ</span>
-                </a>
-            　　</div>
+                <div class="p-header__btn p-btn p-btn__seminar u-desktop">
+                    <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
+                        target="_blank">
+                        <span>26卒の説明会はコチラ</span>
+                    </a>
+                </div>
                 <button class="p-hamburger p-header__hamburger">
                     <div class="p-hamburger__lines">
                         <span></span>
@@ -1530,7 +1548,7 @@
                         <div class="p-g-nav__item">
                             <a href="#contact">
                                 <p class="p-g-nav__sub-title">Information seminar</p>
-                                <h2 class="p-g-nav__title">説明会について</h2>
+                                <h2 class="p-g-nav__title">26卒生の説明会</h2>
                             </a>
                         </div>
                         <div class="p-g-nav__item">
@@ -1540,13 +1558,6 @@
                             </a>
                         </div>
                     </div>
-                    <div class="p-g-nav__right">
-                        <div class="p-g-nav__btn p-btn p-btn__company">
-                            <a href="#"><span>企業サイト</span></a>
-                        </div>
-                        <div class="p-g-nav__btn p-btn p-btn__entry">
-                            <a href="#contact"><span>エントリー</span></a>
-                        </div>
                     </div>
                 </div>
             </nav>
@@ -1589,9 +1600,9 @@
         <ul>
             <li data-aos="fade-up" data-aos-delay="300">
                 お客様のITシステムに関する様々な課題に対し、分析から設計、開発、導入、運用まで一貫したソリューションを提供し、最適なシステム構築を支援します。</li>
-        　　<li data-aos="fade-up" data-aos-delay="300">
-        分析：お客様の「困りごと」と「欲しいもの」を明確にする。設計：システムの「設計図」を作る。開発：設計図通りにプログラミング言語（JavaやPython、C言語等）を使用「システムを作る」。
-        導入：完成したシステムをお客様に届ける。運用：システムを安定して使い続けられるよう支える。</li>
+            <li data-aos="fade-up" data-aos-delay="300">
+                分析：お客様の「困りごと」と「欲しいもの」を明確にする。設計：システムの「設計図」を作る。開発：設計図通りにプログラミング言語（JavaやPython、C言語等）を使用「システムを作る」。
+                導入：完成したシステムをお客様に届ける。運用：システムを安定して使い続けられるよう支える。</li>
         </ul>
         <h3 class="sub-heading" data-aos="zoom-in-up" data-aos-delay="200">受託事業</h3>
         <ul>
@@ -1609,9 +1620,9 @@
             <li data-aos="fade-up" data-aos-delay="500">キッティングソリューション</li>
         </ul>
         <h3 class="sub-heading" data-aos="zoom-in-up" data-aos-delay="200">ITスクール事業</h3>
-        <ul>  
-        　　<li data-aos="fade-up" data-aos-delay="300">Java研修</li>
         <ul>
+            <li data-aos="fade-up" data-aos-delay="300">Java研修</li>
+        </ul>
     </section>
 
     <section id="organization-chart" data-aos="fade-down">
@@ -1854,20 +1865,21 @@
             <li data-aos="fade-up" data-aos-delay="200">
                 役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
         </ul>
-    
+
         <h3 id="culture-training" data-aos="fade-up" data-aos-delay="250">組織文化（研修）</h3>
-        　　<ol>
-                <li data-aos="fade-up" data-aos-delay="350">ビジネス研修（思考編～、行動編～）</li>
-                <li data-aos="fade-up" data-aos-delay="400">キャリア研修（インフラ・開発・コンサル）</li>
-                <li data-aos="fade-up" data-aos-delay="450">マネジメント研修</li>
-                <li data-aos="fade-up" data-aos-delay="500">知識研修（インフラ・開発・コンサル）</li>
-                <li data-aos="fade-up" data-aos-delay="550">技術研修（インフラ・開発・コンサル）</li>
-            </ol>
-　　　　　　　<p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ビジネス研修</p>
-        　　<div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
-                <img src="images/キャリア研修4.jpeg" alt="ビジネス研修風景のイメージ" class="content-image" loading="lazy" data-aos="zoom-in"
-                data-aos-delay="300" width="600" height="400"> </div>
-    
+        <ol>
+            <li data-aos="fade-up" data-aos-delay="350">ビジネス研修（思考編～、行動編～）</li>
+            <li data-aos="fade-up" data-aos-delay="400">キャリア研修（インフラ・開発・コンサル）</li>
+            <li data-aos="fade-up" data-aos-delay="450">マネジメント研修</li>
+            <li data-aos="fade-up" data-aos-delay="500">知識研修（インフラ・開発・コンサル）</li>
+            <li data-aos="fade-up" data-aos-delay="550">技術研修（インフラ・開発・コンサル）</li>
+        </ol>
+        <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ビジネス研修</p>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
+            <img src="images/キャリア研修4.jpeg" alt="ビジネス研修風景のイメージ" class="content-image" loading="lazy" data-aos="zoom-in"
+                data-aos-delay="300" width="600" height="400">
+        </div>
+
         <h3 id="culture-club" data-aos="fade-up" data-aos-delay="500">組織文化（部活）</h3>
         <ol>
             <li data-aos="fade-up" data-aos-delay="350">健康や日々のリフレッシュする</li>
@@ -1875,26 +1887,30 @@
             <li data-aos="fade-up" data-aos-delay="450">社員が定着し、共に成長できる場所</li>
         </ol>
         <div class="image-gallery">
-        　　<p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ダーツ部</p>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
-                <img src="images/darts.jpeg" alt="活動動２の風景" class="content-image" loading="lazy" width="600" height="400"> </div>
             <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">野球部</p>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
-                    <img src="images/野球部.jpeg" alt="部活動１の風景" class="content-image" loading="lazy" width="600" height="400"> </div>
+                <img src="images/野球部.jpeg" alt="部活動１の風景" class="content-image" loading="lazy" width="600" height="400">
             </div>
-    
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ダーツ部</p>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+                <img src="images/darts.jpeg" alt="活動動２の風景" class="content-image" loading="lazy" width="600" height="400">
+            </div>
+        </div>
+
         <h3 id="culture-recreation" data-aos="fade-up" data-aos-delay="650">組織文化（レクリエーション）</h3>
         <ul>
             <li data-aos="fade-up" data-aos-delay="150">
                 様々なレクを毎月1〜2回開催</li>
         </ul>
         <div class="image-gallery">
-        　　<p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">BBQレク（年2回：夏開催）</p>
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">BBQレク（年2回：夏開催）</p>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="700">
-                <img src="images/BBQレク2.jpeg" alt="バーベキューレクリエーション風景" class="content-image" loading="lazy" width="600" height="400"> </div>
-        　　<p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">社員旅行</p>
+                <img src="images/BBQレク2.jpeg" alt="バーベキューレクリエーション風景" class="content-image" loading="lazy" width="600" height="400">
+            </div>
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">社員旅行</p>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="750">
-                <img src="images/社員旅行3.jpeg" alt="社員旅行の風景" class="content-image" loading="lazy" width="600" height="400"> </div>
+                <img src="images/社員旅行3.jpeg" alt="社員旅行の風景" class="content-image" loading="lazy" width="600" height="400">
+            </div>
         </div>
     </section>
 
@@ -1928,7 +1944,7 @@
             <li data-aos="fade-up" data-aos-delay="200">資格取得支援制度（受験料・研修費全額補助）</li>
             <li data-aos="fade-up" data-aos-delay="250">研修費無料のITスクール付き</li>
             <li data-aos="fade-up" data-aos-delay="300">社内SPIN大会やゲームスペースで気軽に交流。仕事後にリフレッシュできる文化</li>
-            　　　　　　<p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">経験から成長できる環境です！</p>
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">経験から成長できる環境です！</p>
         </ol>
     </section>
 
@@ -1966,17 +1982,18 @@
     <section id="contact" data-aos="fade-up">
         <h2>14. 採用情報とお問い合わせ</h2>
         <ul>
-            　　　　　　<li data-aos="fade-up" data-aos-delay="100">公式ホームページ<br><a href="https://spintechnology.jp"
+            <li data-aos="fade-up" data-aos-delay="100">公式ホームページ<br><a href="https://spintechnology.jp"
                     target="_blank">https://spintechnology.jp?hl=ja</a></li>
             <li data-aos="fade-up" data-aos-delay="100">公式Instagram<br><a
                     href="https://www.instagram.com/spintec.official/?hl=ja"
                     target="_blank">https://www.instagram.com/spintec.official//</a></li>
-                    <li data-aos="fade-up" data-aos-delay="100">26卒生の説明会はこちら<br><a
-                        href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
-                        target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a></li>
+            <li data-aos="fade-up" data-aos-delay="100">26卒生の説明会はこちら<br><a
+                    href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
+                    target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a>
+            </li>
         </ul>
         <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="150">ご質問があれば、お気軽にお問い合わせ・ご連絡ください。</h4>
-        　　　　<div class="qr-code-container" data-aos="zoom-in" data-aos-delay="500">
+        <div class="qr-code-container" data-aos="zoom-in" data-aos-delay="500">
             <img src="images/問い合わせQR2.jpeg" alt="お問い合わせ用QRコード" class="content-image" loading="lazy">
             <p>スマートフォンでQRコードを読み取り、お問い合わせフォームへ進んでください</p>
         </div>
