@@ -816,256 +816,270 @@
     
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
-            body {
-                padding: 15px;
-                /* 全体のパディングを調整 */
-                padding-top: 110px;
-                /* ヘッダーの高さに合わせて調整 */
-            }
-    
-            .p-header {
-                padding: 5px 15px;
-                /* ヘッダーのパディングを調整 */
-            }
-    
-            .p-header__logo img {
-                max-height: 60px;
-                /* モバイルでのロゴの高さ */
-            }
-    
-            .p-header__right {
-                gap: 10px;
-                /* ヘッダーボタン間のスペースを調整 */
-            }
-    
-            .u-desktop {
-                display: none;
-                /* デスクトップ用ボタンを非表示 */
-            }
-    
-            .p-hamburger {
-                display: block;
-                /* ハンバーガーメニューを表示 */
-            }
-    
-            .p-g-nav {
-                padding: 15px;
-                /* グローバルナビのパディングを調整 */
-                gap: 10px;
-                /* ナビ内アイテム間のスペースを調整 */
-            }
-    
-            .p-g-nav__inner {
-                flex-direction: column;
-                /* ナビ内アイテムを縦並びにする */
-                gap: 10px;
-                /* ナビ内アイテム間のスペースを調整 */
-            }
-    
-            .p-g-nav__left,
-            .p-g-nav__center,
-            .p-g-nav__right {
-                display: flex;
-                flex-direction: column;
-                /* 各列を縦並びにする */
-                gap: 10px;
-                width: 100%;
-            }
-    
-            .p-g-nav__item a,
-            .p-g-nav__btn {
-                padding: 10px;
-                /* ナビ内ボタンのパディングを調整 */
-                font-size: 0.9rem;
-                /* 文字サイズを調整 */
-            }
-    
-            section {
-                padding: 20px;
-                /* セクションのパディングを調整 */
-                margin-bottom: 20px;
-            }
-    
-            section h2 {
-                font-size: 1.8rem;
-                /* セクションタイトルの文字サイズを調整 */
-                padding: 8px 15px;
-            }
-    
-            #hero {
-                padding: 40px 15px;
-            }
-    
-            #hero h2 {
-                font-size: 2.2rem;
-                /* ヒーローセクションタイトルの文字サイズを調整 */
-            }
-    
-            #hero p {
-                font-size: 1.1rem;
-                /* ヒーローセクション説明文の文字サイズを調整 */
-            }
-    
-            section a.btn {
-                padding: 10px 20px;
-                font-size: 0.95rem;
-            }
-    
-            .image-gallery {
-                gap: 20px;
-                /* 画像ギャラリーのギャップを調整 */
-            }
-    
-            .qr-code-container img {
-                max-width: 200px;
-                /* QRコードの最大幅を調整 */
-            }
-    
-            .qr-code-container p {
-                font-size: 0.9rem;
-                /* QRコード説明文の文字サイズを調整 */
-            }
-    
-            /* 社長紹介セクションのモバイルでの調整 */
-            #ceo-intro .ceo-content-wrapper {
-                flex-direction: column;
-                /* 縦方向に積み重ねる */
-                align-items: center;
-                /* 中央寄せ */
-                gap: 20px;
-            }
-    
-            #ceo-intro .ceo-image-right {
-                order: -1;
-                /* 画像をテキストの上に移動 */
-                max-width: 250px;
-                /* 画像の最大幅を調整 */
-            }
-    
-            #ceo-intro .ceo-text-left {
-                text-align: center;
-                /* テキストを中央寄せ */
-            }
-    
-            /* 事業概要の小見出し */
-            #business-overview h3.sub-heading {
-                font-size: 1.3rem;
-            }
-    
-            /* エンジニアのキャリアパスの項目 */
-            #engineer-career .gallery-item h3.career-title {
-                /* pからh3にセレクタを修正 */
-                font-size: 1.3rem;
-            }
-    
-            /* 組織文化の導入文 */
-            #culture .intro-text {
-                font-size: 1.5rem;
-            }
-    
-            /* 会社の強みの4つの自信 */
-            #strengths .strength-point {
-                font-size: 1.3rem;
-            }
-    
-            /* ビジネスモデルのリスト */
-            #business-model ul>li {
-                font-size: 1rem;
-            }
-    
-            #business-model>p:nth-child(3)+ul>li {
-                font-size: 1rem;
-            }
-        }
-    
-        /* 480px以下の画面幅に適用 (さらに小さいスマートフォン向け) */
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                padding-top: 100px;
-                /* ヘッダーの高さに合わせて調整 */
-            }
-    
-            .p-header__logo img {
-                max-height: 50px;
-            }
-    
-            .p-hamburger__menu {
-                font-size: 0.7rem;
-            }
-    
-            section {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-    
-            section h2 {
-                font-size: 1.5rem;
-                padding: 6px 10px;
-            }
-    
-            #hero {
-                padding: 30px 10px;
-            }
-    
-            #hero h2 {
-                font-size: 1.8rem;
-            }
-    
-            #hero p {
-                font-size: 1rem;
-            }
-    
-            section a.btn {
-                padding: 8px 18px;
-                font-size: 0.9rem;
-            }
-    
-            .tab-button {
-                font-size: 0.8rem;
-                padding: 6px 10px;
-            }
-    
-            .tab-content-container {
-                min-height: 180px;
-            }
-    
-            /* 社長紹介セクションのモバイルでの調整 */
-            #ceo-intro .ceo-content-wrapper {
-                max-width: 200px;
-                /* さらに小さい画面での画像サイズ調整 */
-            }
-    
-            /* 事業概要の小見出し */
-            #business-overview h3.sub-heading {
-                font-size: 1.1rem;
-            }
-    
-            /* エンジニアのキャリアパスの項目 */
-            #engineer-career .gallery-item h3.career-title {
-                /* pからh3にセレクタを修正 */
-                font-size: 1.1rem;
-            }
-    
-            /* 組織文化の導入文 */
-            #culture .intro-text {
-                font-size: 1.3rem;
-            }
-    
-            /* 会社の強みの4つの自信 */
-            #strengths .strength-point {
-                font-size: 1.1rem;
-            }
-    
-            /* ビジネスモデルのリスト */
-            #business-model ul>li {
-                font-size: 0.9rem;
-            }
-    
-            #business-model>p:nth-child(3)+ul>li {
-                font-size: 0.9rem;
-            }
-        }
+    body {
+        padding: 15px;
+        /* 全体のパディングを調整 */
+        padding-top: 110px;
+        /* ヘッダーの高さに合わせて調整 */
+    }
+
+    .p-header {
+        padding: 5px 15px;
+        /* ヘッダーのパディングを調整 */
+    }
+
+    .p-header__logo img {
+        max-height: 60px;
+        /* モバイルでのロゴの高さ */
+    }
+
+    .p-header__right {
+        gap: 10px;
+        /* ヘッダーボタン間のスペースを調整 */
+    }
+
+    .u-desktop {
+        display: none;
+        /* デスクトップ用ボタンを非表示 */
+    }
+
+    .p-hamburger {
+        display: block !important; /* 強制的に表示 */
+    }
+
+    .p-g-nav {
+        /* デフォルトで非表示にするが、!important で確実に適用 */
+        display: none !important;
+        /* メニューが完全に画面を覆うように設定 */
+        position: fixed !important; /* fixedにしてスクロールしても追従 */
+        top: 0 !important;
+        left: 0 !important;
+        height: 100vh !important; /* 画面の高さ全体 */
+        width: 100% !important; /* 画面の幅全体 */
+        overflow-y: auto !important; /* メニュー内容が多ければスクロール可能に */
+        z-index: 9999 !important; /* 他のどの要素よりも手前に表示 */
+        flex-direction: column !important; /* 必ず縦並びにする */
+        padding: 15px !important; /* パディングを強制 */
+        gap: 10px !important; /* アイテム間のスペースを強制 */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08) !important; /* シャドウを強制 */
+        background-color: #f0f4f8 !important; /* 背景色を強制 */
+    }
+
+    .p-g-nav.is-active {
+        display: flex !important; /* アクティブ時に確実に表示 */
+    }
+
+    .p-g-nav__inner {
+        flex-direction: column;
+        /* ナビ内アイテムを縦並びにする */
+        gap: 10px;
+        /* ナビ内アイテム間のスペースを調整 */
+    }
+
+    .p-g-nav__left,
+    .p-g-nav__center,
+    .p-g-nav__right {
+        display: flex;
+        flex-direction: column;
+        /* 各列を縦並びにする */
+        gap: 10px;
+        width: 100%;
+    }
+
+    .p-g-nav__item a,
+    .p-g-nav__btn {
+        padding: 10px;
+        /* ナビ内ボタンのパディングを調整 */
+        font-size: 0.9rem;
+        /* 文字サイズを調整 */
+    }
+
+    section {
+        padding: 20px;
+        /* セクションのパディングを調整 */
+        margin-bottom: 20px;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+        /* セクションタイトルの文字サイズを調整 */
+        padding: 8px 15px;
+    }
+
+    #hero {
+        padding: 40px 15px;
+    }
+
+    #hero h2 {
+        font-size: 2.2rem;
+        /* ヒーローセクションタイトルの文字サイズを調整 */
+    }
+
+    #hero p {
+        font-size: 1.1rem;
+        /* ヒーローセクション説明文の文字サイズを調整 */
+    }
+
+    section a.btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    .image-gallery {
+        gap: 20px;
+        /* 画像ギャラリーのギャップを調整 */
+    }
+
+    .qr-code-container img {
+        max-width: 200px;
+        /* QRコードの最大幅を調整 */
+    }
+
+    .qr-code-container p {
+        font-size: 0.9rem;
+        /* QRコード説明文の文字サイズを調整 */
+    }
+
+    /* 社長紹介セクションのモバイルでの調整 */
+    #ceo-intro .ceo-content-wrapper {
+        flex-direction: column;
+        /* 縦方向に積み重ねる */
+        align-items: center;
+        /* 中央寄せ */
+        gap: 20px;
+    }
+
+    #ceo-intro .ceo-image-right {
+        order: -1;
+        /* 画像をテキストの上に移動 */
+        max-width: 250px;
+        /* 画像の最大幅を調整 */
+    }
+
+    #ceo-intro .ceo-text-left {
+        text-align: center;
+        /* テキストを中央寄せ */
+    }
+
+    /* 事業概要の小見出し */
+    #business-overview h3.sub-heading {
+        font-size: 1.3rem;
+    }
+
+    /* エンジニアのキャリアパスの項目 */
+    #engineer-career .gallery-item h3.career-title {
+        /* pからh3にセレクタを修正 */
+        font-size: 1.3rem;
+    }
+
+    /* 組織文化の導入文 */
+    #culture .intro-text {
+        font-size: 1.5rem;
+    }
+
+    /* 会社の強みの4つの自信 */
+    #strengths .strength-point {
+        font-size: 1.3rem;
+    }
+
+    /* ビジネスモデルのリスト */
+    #business-model ul>li {
+        font-size: 1rem;
+    }
+
+    #business-model>p:nth-child(3)+ul>li {
+        font-size: 1rem;
+    }
+}
+
+/* 480px以下の画面幅に適用 (さらに小さいスマートフォン向け) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        padding-top: 100px;
+        /* ヘッダーの高さに合わせて調整 */
+    }
+
+    .p-header__logo img {
+        max-height: 50px;
+    }
+
+    .p-hamburger__menu {
+        font-size: 0.7rem;
+    }
+
+    section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+        padding: 6px 10px;
+    }
+
+    #hero {
+        padding: 30px 10px;
+    }
+
+    #hero h2 {
+        font-size: 1.8rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    section a.btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+
+    .tab-button {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    .tab-content-container {
+        min-height: 180px;
+    }
+
+    /* 社長紹介セクションのモバイルでの調整 */
+    #ceo-intro .ceo-content-wrapper {
+        max-width: 200px;
+        /* さらに小さい画面での画像サイズ調整 */
+    }
+
+    /* 事業概要の小見出し */
+    #business-overview h3.sub-heading {
+        font-size: 1.1rem;
+    }
+
+    /* エンジニアのキャリアパスの項目 */
+    #engineer-career .gallery-item h3.career-title {
+        /* pからh3にセレクタを修正 */
+        font-size: 1.1rem;
+    }
+
+    /* 組織文化の導入文 */
+    #culture .intro-text {
+        font-size: 1.3rem;
+    }
+
+    /* 会社の強みの4つの自信 */
+    #strengths .strength-point {
+        font-size: 1.1rem;
+    }
+
+    /* ビジネスモデルのリスト */
+    #business-model ul>li {
+        font-size: 0.9rem;
+    }
+
+    #business-model>p:nth-child(3)+ul>li {
+        font-size: 0.9rem;
+    }
+}
     </style>
 </head>
 
@@ -1568,65 +1582,74 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 500, // アニメーションのduration（ミリ秒）
-            easing: 'ease-in-out-back', // イージングの設定
-            delay: 100, // アニメーション開始までの遅延（ミリ秒）
-            once: true, // アニメーションを一度だけ実行
-            mirror: false, // スクロールバックしても再度アニメーションしない
-        });
-    </script>
-    <script>
-        function openTab(tabName) {
-            var i;
-            var x = document.getElementsByClassName("tab-content");
-            var buttons = document.getElementsByClassName("tab-button");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            for (i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            document.getElementById(tabName).style.display = "block";
-            // eventが未定義の場合があるため、条件分岐を追加
-            if (event && event.currentTarget) {
-                event.currentTarget.classList.add("active");
-            }
+<script>
+    AOS.init({
+        duration: 500, // アニメーションのduration（ミリ秒）
+        easing: 'ease-in-out-back', // イージングの設定
+        delay: 100, // アニメーション開始までの遅延（ミリ秒）
+        once: true, // アニメーションを一度だけ実行
+        mirror: false, // スクロールバックしても再度アニメーションしない
+    });
+</script>
+<script>
+    function openTab(tabName) {
+        var i;
+        var x = document.getElementsByClassName("tab-content");
+        var buttons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
         }
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        document.getElementById(tabName).style.display = "block";
+        // eventが未定義の場合があるため、条件分岐を追加
+        if (event && event.currentTarget) {
+            event.currentTarget.classList.add("active");
+        }
+    }
     
-        // 初期表示で「組織全体図」タブをアクティブにする
-        document.addEventListener('DOMContentLoaded', function () {
-            openTab('overall');
+    // 初期表示で「組織全体図」タブをアクティブにする
+    document.addEventListener('DOMContentLoaded', function () {
+        openTab('overall');
     
-            // ハンバーガーメニューの開閉機能 (JavaScript)
-            const hamburger = document.querySelector('.p-hamburger');
-            const gNav = document.querySelector('.p-g-nav');
-            // グローバルナビ内の全てのリンクを取得
-            const gNavLinks = document.querySelectorAll('.p-g-nav a');
+        // ハンバーガーメニューの開閉機能 (JavaScript)
+        const hamburger = document.querySelector('.p-hamburger');
+        const gNav = document.querySelector('.p-g-nav');
+        const gNavLinks = document.querySelectorAll('.p-g-nav a');
     
+        // p-header__innerへのposition: relative;の設定はCSSで直接行われているため、
+        // ここでのJavaScriptによる操作は不要です。
     
-            if (hamburger && gNav) { // 要素が存在するか確認
-                hamburger.addEventListener('click', () => {
-                    hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を変化
-                    gNav.classList.toggle('is-active');      // グローバルナビゲーションの表示/非表示を切り替え
+        if (hamburger && gNav) { // 要素が存在するか確認
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を変化
+                gNav.classList.toggle('is-active');      // グローバルナビゲーションの表示/非表示を切り替え
+    
+                // メニューが開いたらbodyのスクロールを固定し、閉じたら解除する
+                if (gNav.classList.contains('is-active')) {
+                    document.body.style.overflow = 'hidden'; // スクロールを禁止
+                } else {
+                    document.body.style.overflow = 'auto'; // スクロールを許可
+                }
+            });
+    
+            // グローバルナビ内のリンクがクリックされたらメニューを閉じる
+            gNavLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // リンクのデフォルトの挙動（ページ内スクロール）を維持するために、
+                    // setTimeoutでメニューを閉じる処理を遅延させます。
+                    // スムーズスクロールが完了する時間を考慮し、少し長めに設定します。
+                    setTimeout(() => {
+                        hamburger.classList.remove('is-active'); // ハンバーガーアイコンを元に戻す
+                        gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示にする
+                        document.body.style.overflow = 'auto';   // bodyのスクロール固定を解除
+                    }, 600); // スムーズスクロールの時間 (duration: 500ms) より少し長めに設定
                 });
-    
-                // グローバルナビ内のリンクがクリックされたらメニューを閉じる
-                gNavLinks.forEach(link => {
-                    link.addEventListener('click', (event) => { // event引数を明示的に受け取る
-                        // リンクのデフォルトの挙動（ページ内スクロール）を維持するために、
-                        // setTimeoutでメニューを閉じる処理を遅延させます。
-                        // スムーズスクロールが完了する時間を考慮し、少し長めに設定します。
-                        setTimeout(() => {
-                            hamburger.classList.remove('is-active'); // ハンバーガーアイコンを元に戻す
-                            gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示にする
-                        }, 600); // スムーズスクロールの時間 (duration: 500ms) より少し長めに設定
-                    });
-                });
-            }
-        });
-    </script>
+            });
+        }
+    });
+</script>
     
 
 </body>
