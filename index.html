@@ -1997,7 +1997,10 @@
             buttons[i].classList.remove("active");
         }
         document.getElementById(tabName).style.display = "block";
-        event.currentTarget.classList.add("active");
+        // eventが未定義の場合があるため、条件分岐を追加
+        if (event && event.currentTarget) {
+            event.currentTarget.classList.add("active");
+        }
     }
 
     // 初期表示で「組織全体図」タブをアクティブにする
@@ -2007,7 +2010,17 @@
         // ハンバーガーメニューの開閉機能 (JavaScript)
         const hamburger = document.querySelector('.p-hamburger');
         const gNav = document.querySelector('.p-g-nav');
-        const gNavLinks = document.querySelectorAll('.p-g-nav a'); // グローバルナビ内の全てのリンクを取得
+        // グローバルナビ内の全てのリンクを取得（直接aタグの子要素になっているものも含む）
+        const gNavLinks = document.querySelectorAll('.p-g-nav a');
+
+        // ヘッダー要素自体にposition: relative;を追加
+        // CSSで既に.p-headerにposition: fixed;が指定されているため、
+        // .p-header__innerにposition: relative;を追加することで解決します。
+        const headerInner = document.querySelector('.p-header__inner');
+        if (headerInner) {
+            headerInner.style.position = 'relative';
+        }
+
 
         if (hamburger && gNav) { // 要素が存在するか確認
             hamburger.addEventListener('click', () => {
@@ -2018,8 +2031,11 @@
             // グローバルナビ内のリンクがクリックされたらメニューを閉じる
             gNavLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    hamburger.classList.remove('is-active'); // ハンバーガーアイコンを元に戻す
-                    gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示にする
+                    // スムーズスクロール後にメニューを閉じるため、少し遅延させる
+                    setTimeout(() => {
+                        hamburger.classList.remove('is-active'); // ハンバーガーアイコンを元に戻す
+                        gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示にする
+                    }, 500); // スムーズスクロールの時間に合わせて調整（0.5秒後）
                 });
             });
         }
