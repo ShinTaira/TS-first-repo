@@ -1214,8 +1214,8 @@
         <h2>3. 組織図</h2>
         <div class="tabs">
             <div class="tab-buttons" data-aos="fade-up" data-aos-delay="100">
-                <button class="tab-button active" onclick="openTab('overall')">組織全体図</button>
-                <button class="tab-button" onclick="openTab('engineering')">エンジニアリング事業部</button>
+                <button class="tab-button active" onclick="openTab(this, 'overall')">組織全体図</button>
+                <button class="tab-button" onclick="openTab(this, 'engineering')">エンジニアリング事業部</button>
             </div>
 
             <div id="overall" class="tab-content active">
@@ -1592,7 +1592,8 @@
     });
 </script>
 <script>
-    function openTab(tabName) {
+    // openTab関数に、クリックされたボタン要素を引数として受け取るように変更
+    function openTab(clickedButton, tabName) {
         var i;
         var x = document.getElementsByClassName("tab-content");
         var buttons = document.getElementsByClassName("tab-button");
@@ -1603,20 +1604,28 @@
             buttons[i].classList.remove("active");
         }
         document.getElementById(tabName).style.display = "block";
-        // eventが未定義の場合があるため、条件分岐を追加
-        if (event && event.currentTarget) {
-            event.currentTarget.classList.add("active");
+        
+        // clickedButton が存在する場合のみ active クラスを追加する
+        if (clickedButton) {
+            clickedButton.classList.add("active");
         }
     }
     
     // 初期表示で「組織全体図」タブをアクティブにする
     document.addEventListener('DOMContentLoaded', function () {
-        openTab('overall');
+        // 初期表示時は、対応するボタン要素を取得して openTab に渡す
+        const initialTabButton = document.querySelector('.tab-button.active');
+        if (initialTabButton) {
+            openTab(initialTabButton, 'overall');
+        } else {
+            // もし初期activeボタンが見つからなければ、直接openTabを呼び出す
+            openTab(null, 'overall');
+        }
     
         // ハンバーガーメニューの開閉機能 (JavaScript)
         const hamburger = document.querySelector('.p-hamburger');
         const gNav = document.querySelector('.p-g-nav');
-        const gNavLinks = document.querySelectorAll('.p-g-nav a'); // グローバルナビ内の全てのリンクを取得
+        const gNavLinks = document.querySelectorAll('.p-g-nav a');
     
         // p-header__innerへのposition: relative;の設定はCSSで直接行われているため、
         // ここでのJavaScriptによる操作は不要です。
