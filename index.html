@@ -1583,9 +1583,16 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    // メニューのトランジション時間（CSSのtransition durationと合わせる）
-    const MENU_TRANSITION_DURATION = 300; // CSSで 0.3s に設定している場合
-
+    AOS.init({
+        duration: 500, // アニメーションのduration（ミリ秒）
+        easing: 'ease-in-out-back', // イージングの設定
+        delay: 100, // アニメーション開始までの遅延（ミリ秒）
+        once: true, // アニメーションを一度だけ実行
+        mirror: false, // スクロールバックしても再度アニメーションしない
+    });
+</script>
+<script>
+    // openTab関数に、クリックされたボタン要素を引数として受け取るように変更
     function openTab(clickedButton, tabName) {
         var i;
         var x = document.getElementsByClassName("tab-content");
@@ -1598,63 +1605,55 @@
         }
         document.getElementById(tabName).style.display = "block";
         
+        // clickedButton が存在する場合のみ active クラスを追加する
         if (clickedButton) {
             clickedButton.classList.add("active");
         }
     }
     
+    // 初期表示で「組織全体図」タブをアクティブにする
     document.addEventListener('DOMContentLoaded', function () {
+        // 初期表示時は、対応するボタン要素を取得して openTab に渡す
         const initialTabButton = document.querySelector('.tab-button.active');
         if (initialTabButton) {
             openTab(initialTabButton, 'overall');
         } else {
+            // もし初期activeボタンが見つからなければ、直接openTabを呼び出す
             openTab(null, 'overall');
         }
     
+        // ハンバーガーメニューの開閉機能 (JavaScript)
         const hamburger = document.querySelector('.p-hamburger');
         const gNav = document.querySelector('.p-g-nav');
         const gNavLinks = document.querySelectorAll('.p-g-nav a');
     
-        if (hamburger && gNav) {
+        // p-header__innerへのposition: relative;の設定はCSSで直接行われているため、
+        // ここでのJavaScriptによる操作は不要です。
+    
+        if (hamburger && gNav) { // 要素が存在するか確認
             hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を変化
+                gNav.classList.toggle('is-active');      // グローバルナビゲーションの表示/非表示を切り替え
+    
+                // メニューが開いたらbodyのスクロールを固定し、閉じたら解除する
                 if (gNav.classList.contains('is-active')) {
-                    // メニューを閉じる
-                    gNav.classList.remove('is-active'); // フェードアウト開始
-                    hamburger.classList.remove('is-active'); // ★変更: ハンバーガーアイコンの状態を即時リセット
-                    document.body.style.overflow = 'auto'; // body のスクロールを許可
-
-                    // アニメーション完了後に display を none にする
-                    setTimeout(() => {
-                        gNav.style.display = 'none'; // DOMから完全に非表示にする
-                    }, MENU_TRANSITION_DURATION + 50); // アニメーション時間 + 少し余裕
-                    
+                    document.body.style.overflow = 'hidden'; // スクロールを禁止
                 } else {
-                    // メニューを開く
-                    gNav.style.display = 'flex'; // まず display を flex にして、要素をレンダリング可能にする
-                    // display: flex が適用されるのを少し待ってから、opacity の transition を開始
-                    setTimeout(() => {
-                        gNav.classList.add('is-active'); // フェードイン開始
-                    }, 10); // 10ミリ秒のわずかな遅延でアニメーション開始
-                    hamburger.classList.add('is-active'); // ★変更: ハンバーガーアイコンの状態を即時開いた状態に
-                    document.body.style.overflow = 'hidden'; // body のスクロールを禁止
+                    document.body.style.overflow = 'auto'; // スクロールを許可
                 }
             });
     
+            // グローバルナビ内のリンクがクリックされたらメニューを閉じる
             gNavLinks.forEach(link => {
                 link.addEventListener('click', (event) => {
-                    // リンククリック時もメニューを閉じる
-                    hamburger.classList.remove('is-active'); // ★変更: ハンバーガーアイコンの状態を即時リセット
-                    gNav.classList.remove('is-active'); // フェードアウト開始
-                    document.body.style.overflow = 'auto'; // body のスクロールを許可
-
-                    // アニメーション完了後に display を none にする
+                    // リンクのデフォルトの挙動（ページ内スクロール）を維持するために、
+                    // setTimeoutでメニューを閉じる処理を遅延させます。
+                    // スムーズスクロールが完了する時間を考慮し、少し長めに設定します。
                     setTimeout(() => {
-                        gNav.style.display = 'none'; // DOMから完全に非表示にする
-                    }, MENU_TRANSITION_DURATION + 50); // アニメーション時間 + 少し余裕
-                    
-                    // ここに event.preventDefault() は不要です。
-                    // ネイティブのスクロール動作を妨げないようにするため。
-                    // スムーズスクロール自体はHTMLの scroll-behavior: smooth; が処理します。
+                        hamburger.classList.remove('is-active'); // ハンバーガーアイコンを元に戻す
+                        gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示にする
+                        document.body.style.overflow = 'auto';   // bodyのスクロール固定を解除
+                    }, 600); // スムーズスクロールの時間 (duration: 500ms) より少し長めに設定
                 });
             });
         }
