@@ -1,5 +1,4 @@
- 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -1977,47 +1976,55 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 500, // アニメーションのduration（ミリ秒）
-            easing: 'ease-in-out-back', // イージングの設定
-            delay: 100, // アニメーション開始までの遅延（ミリ秒）
-            once: true, // アニメーションを一度だけ実行
-            mirror: false, // スクロールバックしても再度アニメーションしない
-        });
-    </script>
-    <script>
-        function openTab(tabName) {
-            var i;
-            var x = document.getElementsByClassName("tab-content");
-            var buttons = document.getElementsByClassName("tab-button");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            for (i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            document.getElementById(tabName).style.display = "block";
-            event.currentTarget.classList.add("active");
+<script>
+    AOS.init({
+        duration: 500, // アニメーションのduration（ミリ秒）
+        easing: 'ease-in-out-back', // イージングの設定
+        delay: 100, // アニメーション開始までの遅延（ミリ秒）
+        once: true, // アニメーションを一度だけ実行
+        mirror: false, // スクロールバックしても再度アニメーションしない
+    });
+</script>
+<script>
+    function openTab(tabName) {
+        var i;
+        var x = document.getElementsByClassName("tab-content");
+        var buttons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
         }
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        document.getElementById(tabName).style.display = "block";
+        event.currentTarget.classList.add("active");
+    }
 
-        // 初期表示で「組織全体図」タブをアクティブにする
-        document.addEventListener('DOMContentLoaded', function () {
-            openTab('overall');
-        });
+    // 初期表示で「組織全体図」タブをアクティブにする
+    document.addEventListener('DOMContentLoaded', function () {
+        openTab('overall');
 
         // ハンバーガーメニューの開閉機能 (JavaScript)
-        // p-hamburgerとp-g-navの要素を取得
         const hamburger = document.querySelector('.p-hamburger');
         const gNav = document.querySelector('.p-g-nav');
+        const gNavLinks = document.querySelectorAll('.p-g-nav a'); // グローバルナビ内の全てのリンクを取得
 
         if (hamburger && gNav) { // 要素が存在するか確認
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を変化
                 gNav.classList.toggle('is-active');      // グローバルナビゲーションの表示/非表示を切り替え
             });
+
+            // グローバルナビ内のリンクがクリックされたらメニューを閉じる
+            gNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('is-active'); // ハンバーガーアイコンを元に戻す
+                    gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示にする
+                });
+            });
         }
-    </script>
+    });
+</script>
 
 </body>
 </html>
