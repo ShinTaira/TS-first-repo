@@ -370,6 +370,16 @@ body::before {
             background-color: #BBDEFB;
         }
 
+        /* NEW: 先輩エンジニアへインタビューセクションのH2背景色 (ここから追記) */
+        #engineer-interviews h2 {
+            background-color: #90CAF9; /* ライトブルー */
+        }
+
+        /* NEW: 会社の雰囲気（動画）セクションのH2背景色 (ここから追記) */
+        #company-video h2 {
+            background-color: #F48FB1; /* ライトピンク */
+        }
+
         #mvv h2 {
             background-color: #F8BBD0;
         }
@@ -514,6 +524,29 @@ body::before {
             font-size: 0.9rem;
             color: #666;
             margin-top: 10px;
+        }
+
+        /* NEW: ビデオコンテナのスタイル (ここから追記) */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* 動画の最大幅 */
+            margin: 20px auto;
+            padding-bottom: 56.25%; /* 16:9のアスペクト比 (動画が16:9の場合) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #000; /* 動画が読み込まれるまでの背景色 */
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 動画全体を表示し、アスペクト比を維持 */
         }
 
         .qr-code-container {
@@ -1375,6 +1408,11 @@ body::before {
                 font-size: 0.9rem;
                 /* QRコード説明文の文字サイズを調整 */
             }
+            
+            /* NEW: 動画コンテナのモバイル調整 (ここから追記) */
+            .video-container {
+                padding-bottom: 56.25%; /* アスペクト比維持 */
+            }
 
             /* 社長紹介セクションのモバイルでの調整 */
             #ceo-intro .ceo-content-wrapper {
@@ -1717,7 +1755,7 @@ body::before {
                                         <ul>
                                             <li>
                                                 <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="200">エンジニア: 32名</div>
+                                                    data-aos-delay="200">エンジニア</div>
                                             </li>
                                         </ul>
                                     </li>
@@ -1730,7 +1768,7 @@ body::before {
                                         <ul>
                                             <li>
                                                 <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="250">エンジニア: 33名</div>
+                                                    data-aos-delay="250">エンジニア</div>
                                             </li>
                                         </ul>
                                     </li>
@@ -1743,7 +1781,7 @@ body::before {
                                         <ul>
                                             <li>
                                                 <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="300">エンジニア: 31名</div>
+                                                    data-aos-delay="300">エンジニア</div>
                                             </li>
                                         </ul>
                                     </li>
@@ -1756,7 +1794,7 @@ body::before {
                                         <ul>
                                             <li>
                                                 <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="350">エンジニア: 45名</div>
+                                                    data-aos-delay="350">エンジニア</div>
                                             </li>
                                         </ul>
                                     </li>
@@ -1769,7 +1807,7 @@ body::before {
                                         <ul>
                                             <li>
                                                 <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="400">エンジニア: 53名</div>
+                                                    data-aos-delay="400">エンジニア</div>
                                             </li>
                                         </ul>
                                     </li>
@@ -1840,8 +1878,26 @@ body::before {
         </div>
     </section>
 
+    <section id="engineer-interviews" data-aos="fade-up">
+        <h2>7. 先輩エンジニアへインタビュー</h2>
+        <div class="image-gallery">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="career-title">インフラエンジニア：田中 太郎</h3>
+                <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="career-title">開発エンジニア：佐藤 花子</h3>
+                <p>「私はWebアプリケーション開発を担当しています。ここでは新しい技術に積極的に挑戦できる文化があり、最先端の技術を実務で活かす機会が豊富です。チームで協力し、大きなプロジェクトを成功させる喜びを感じています。」</p>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="career-title">コンサルエンジニア：鈴木 一郎</h3>
+                <p>「お客様のビジネス課題をITで解決するコンサルティング業務に魅力を感じています。技術力だけでなく、コミュニケーション能力や提案力も磨けるため、多角的に成長したい方には最適な環境だと思います。」</p>
+            </div>
+        </div>
+    </section>
+
     <section id="mvv" data-aos="fade-up">
-        <h2>7. SPINTECHNOLOGYのMVV</h2>
+        <h2>8. SPINTECHNOLOGYのMVV</h2>
         <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="100">Mission </h3>
         <p data-aos="fade-up" data-aos-delay="150">ITで人を育て、お客様と志を共にする未来を創る</p>
         <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="200">Vision </h3>
@@ -1855,7 +1911,7 @@ body::before {
     </section>
 
     <section id="business-model" data-aos="fade-up">
-        <h2>8. ビジネスモデル</h2>
+        <h2>9. ビジネスモデル</h2>
         <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYのビジネスモデルは、以下の4つの主要なサービスと、それらを支える強固なパートナーシップに基づいています。
         </p>
         <ul>
@@ -1877,7 +1933,7 @@ body::before {
     </section>
 
     <section id="culture" data-aos="fade-up">
-        <h2>9. 組織文化</h2>
+        <h2>10. 組織文化</h2>
         <h3 class="intro-text" data-aos="fade-up" data-aos-delay="100">スピンの組織文化とは？</h3>
         <ul>
             <li data-aos="fade-up" data-aos-delay="150">
@@ -1933,9 +1989,21 @@ body::before {
             </div>
         </div>
     </section>
+    
+    <section id="company-video" data-aos="fade-up">
+        <h2>11. 会社の雰囲気（動画）</h2>
+        <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYの活気ある職場環境や社員の様子を動画でご紹介します。</p>
+        <div class="video-container" data-aos="fade-up" data-aos-delay="200">
+            <video controls preload="none" poster="images/video-thumbnail.jpg">
+                <source src="your-company-video.mp4" type="video/mp4">
+                お使いのブラウザは動画タグをサポートしていません。
+            </video>
+        </div>
+        <p data-aos="fade-up" data-aos-delay="300">※動画はイメージです。実際の動画をアップロードしてご活用ください。</p>
+    </section>
 
     <section id="strengths" data-aos="fade-up">
-        <h2>10. 会社の強み</h2>
+        <h2>12. 会社の強み</h2>
         <ol>
             <li data-aos="fade-up" data-aos-delay="100">
                 <h3 class="strength-point">会社に対する自信</h3>
@@ -1957,7 +2025,7 @@ body::before {
     </section>
 
     <section id="rules-systems" data-aos="fade-up">
-        <h2>11. 福利厚生と制度</h2>
+        <h2>13. 福利厚生と制度</h2>
         <p data-aos="fade-up" data-aos-delay="100"><span class="red-note">※一部抜粋</span></p>
         <ol>
             <li data-aos="fade-up" data-aos-delay="150">年間休日125日　（完全週休2日制（土日休み）＋GW/夏季/年末年始/慶弔休暇/ハネムーン休暇OK）</li>
@@ -1969,7 +2037,7 @@ body::before {
     </section>
 
     <section id="future" data-aos="fade-up">
-        <h2>12. 私たちの目指す未来</h2>
+        <h2>14. 私たちの目指す未来</h2>
         <ol>
             <li>
                 <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="100">お客様と共にビジネスの未来を創る</h3>
@@ -1991,7 +2059,7 @@ body::before {
     </section>
 
     <section id="summary" data-aos="fade-up">
-        <h2>13. まとめ</h2>
+        <h2>15. まとめ</h2>
         <ul>
             <li data-aos="fade-up" data-aos-delay="100">SPIN TECHNOLOGYは、成長意欲と挑戦する心を大切にする会社です。</li>
             <li data-aos="fade-up" data-aos-delay="150">未経験からでもプロフェッショナルを目指せる教育・サポート体制があります。</li>
@@ -2000,7 +2068,7 @@ body::before {
     </section>
 
     <section id="contact" data-aos="fade-up">
-        <h2>14. 採用情報とお問い合わせ</h2>
+        <h2>16. 採用情報とお問い合わせ</h2>
         <ul>
             <li data-aos="fade-up" data-aos-delay="100">公式ホームページ<br><a href="https://spintechnology.jp"
                     target="_blank">https://spintechnology.jp?hl=ja</a></li>
@@ -2086,6 +2154,7 @@ body::before {
             });
         });
         // --- ここまで追加 ---
+        
 
     </script>
 
