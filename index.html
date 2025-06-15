@@ -1558,23 +1558,23 @@ body::before {
                             </a>
                         </div>
                     </div>
+                    <div class="p-g-nav__item">
+                        <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969" target="_blank">
+                            <p class="p-g-nav__sub-title">Information seminar</p>
+                            <h2 class="p-g-nav__title">26卒生の説明会</h2>
+                        </a>
+                    </div>
+                    <div class="p-g-nav__item">
+                        <a href="#company-overview">
+                            <p class="p-g-nav__sub-title">About</p>
+                            <h2 class="p-g-nav__title">会社概要</h2>
+                        </a>
+                    </div>
                     <div class="p-g-nav__center">
                         <div class="p-g-nav__item">
                             <a href="#engineer-career">
                                 <p class="p-g-nav__sub-title">Tips</p>
                                 <h2 class="p-g-nav__title">お役立ち情報</h2>
-                            </a>
-                        </div>
-                        <div class="p-g-nav__item">
-                            <a href="#contact">
-                                <p class="p-g-nav__sub-title">Information seminar</p>
-                                <h2 class="p-g-nav__title">26卒生の説明会</h2>
-                            </a>
-                        </div>
-                        <div class="p-g-nav__item">
-                            <a href="#company-overview">
-                                <p class="p-g-nav__sub-title">About</p>
-                                <h2 class="p-g-nav__title">会社概要</h2>
                             </a>
                         </div>
                     </div>
@@ -2064,6 +2064,29 @@ body::before {
                 gNav.classList.toggle('is-active');      // グローバルナビゲーションの表示/非表示を切り替え
             });
         }
+
+        // --- ここから追加 ---
+        // ハンバーガーメニュー内のリンクがクリックされたときにメニューを閉じる
+        const gNavItems = document.querySelectorAll('.p-g-nav__item a'); // グローバルナビゲーション内のすべてのリンクを取得
+
+        gNavItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburger.classList.remove('is-active'); // ハンバーガーアイコンを非アクティブに
+                gNav.classList.remove('is-active');     // グローバルナビゲーションを非表示に
+            });
+        });
+
+        // グローバルナビゲーション内のボタンも考慮する場合 (例: 26卒の説明会はコチラ)
+        const gNavBtns = document.querySelectorAll('.p-g-nav__btn a');
+
+        gNavBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                hamburger.classList.remove('is-active'); // ハンバーガーアイコンを非アクティブに
+                gNav.classList.remove('is-active');     // グローバルナビゲーションを非表示に
+            });
+        });
+        // --- ここまで追加 ---
+
     </script>
 
 </body>
